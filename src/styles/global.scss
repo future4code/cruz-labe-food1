@@ -1,9 +1,39 @@
 @use 'variables' as color;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
-    --primary: 'red'
+    --orangey-red: #ff3b30;
+    --tangerine: #ff9500;
+    --marigold: #ffcc00;
+    --weird-green: #4cd964;
+    --robin-s-egg: #5ac8fa;
+    --deep-sky-blue: #007aff;
+    --warm-blue: #5856d6;
+    --reddish-pink: #ff2d55;
+    --pale-grey: #ffcc00;
+    --pale-lilac: #e5e5ea;
+    --light-blue-grey: d1d1d6;
+    --light-blue-grey-two: #c7c7cc;
+    --blue-grey: #8e8e93;
+    --black: #000000;
+    --dark-peach: #e86e5a;
+    --white-two: #fefefe;
 }
 
 
 body {
+    background-color: var(--white-two);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
 }
