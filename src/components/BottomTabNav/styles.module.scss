@@ -1,0 +1,63 @@
+.container {
+  position: fixed;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px;
+  border-top: 1px solid #999;
+}
+
+.flex {
+  background-color: rgb(250, 250, 250);
+  //   width: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 70px;
+  top: 0px;
+}
+
+.icon {
+  background-color: rgb(216, 126, 17);
+  width: 27px;
+  height: 27px;
+  margin: 10px 46px 9px 47px;
+}
+
+.home {
+  background-image: url("/assets/icons/homepage.svg");
+  width: 27px;
+  height: 27px;
+  margin: 10px 46px 9px 47px;
+}
+.home:hover,
+.home:active {
+  background-image: url("/assets/icons/homepage-active.svg");
+}
+
+.cart {
+  background-image: url("/assets/icons/shopping-cart.svg");
+  width: 27px;
+  height: 27px;
+  margin: 10px 46px 9px 47px;
+}
+.cart:hover,
+.cart:active {
+  background-image: url("/assets/icons/shopping-cart-active.svg");
+}
+
+.avatar {
+  background-image: url("/assets/icons/avatar.svg");
+  width: 27px;
+  height: 27px;
+  margin: 10px 46px 9px 47px;
+}
+.avatar:hover,
+.avatar:active {
+  background-image: url("/assets/icons/avatar-active.svg");
+}
