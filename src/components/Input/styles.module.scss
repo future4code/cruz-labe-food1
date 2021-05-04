@@ -1,0 +1,36 @@
+.rectangle {
+  width: 100%;
+  height: 56px;
+  margin: 0.5rem 0 0;
+  position: relative;
+}
+
+.label {
+  color: var(--grey);
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  width: 5rem;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  height: 3rem;
+  border-radius: 2px;
+  border: solid 1px #b8b8b8;
+  padding-left: 1rem;
+  color: var(--grey);
+
+  &::placeholder {
+    text-transform: capitalize;
+    color: var(--grey);
+  }
+}
+
+.img {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+}

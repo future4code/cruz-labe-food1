@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.title {
+  color: var(--black);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.logo {
+}
+
+.arrowBack {
+  height: 1rem;
+}

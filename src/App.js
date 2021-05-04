@@ -1,7 +1,7 @@
 import Router from 'router/routes';
 import './styles/global.scss';
 
-function App(props) {
+function App() {
   return (
     <div className='App'>
     <Router />
