@@ -1,7 +1,13 @@
+import Header from 'components/Header'
 import styles from './styles.module.scss'
+import {name} from 'constants/project'
 const Home = () => {
   return (
-    <h1 className={styles.title}>Home page</h1>
+    <div className={styles.container}>
+      <Header title={name} />
+      
+      
+    </div>
   )
 }
 
