@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header title={name} />
+    
       
       
     </div>

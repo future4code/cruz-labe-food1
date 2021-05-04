@@ -4,7 +4,7 @@ const Input = () => {
 
     return (
         <>
-        <label for="search" />Pesquisa</label>
+        <label for="search">Pesquisa</label>
         <input type="search" id="search" />
         </>
     )
