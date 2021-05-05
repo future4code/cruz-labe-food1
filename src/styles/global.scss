@@ -1,27 +1,26 @@
-@use 'variables' as color;
+@use 'variables';
+
+:root {
+  @each $name, $color in variables.$colors {
+    --#{$name}: #{$color};
+  }
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --primary: #e86e5a;
-  --inactive: rgba(#e86e5a, 0.5);
-  --secondary: #e02020;
-  --text-primary: #000;
-  --text-secondary: #b8b8b8;
-  --text-inactive: #d0d0d0;
-  --background-primary: #fff;
-  --background-secondary: #eeeeee;
-
-  --grey: #b8b8b8;
-  --white: #fefefe;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 body {
   background-color: var(--white);
+
+  // .App {
+  //   width: 100%;
+  //   padding: 1rem;
+  // }
 }
 
 a {

@@ -1,9 +1,5 @@
 @use 'mixins' as *;
+
 .container {
   @include container;
-}
-
-.text {
-  font-size: 1rem;
-  text-align: center;
 }

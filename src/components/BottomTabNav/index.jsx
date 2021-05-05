@@ -1,33 +1,19 @@
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+import useGo from "hooks/useGo";
 
 // const classes = classNames(styles.icon, styles.home);
 
-export const goToHomePage = (history) => {
-  history.push("/");
-};
-
-export const goToCartPage = (history) => {
-  history.push("/cart");
-};
-
-export const goToProfilePage = (history) => {
-  history.push("/profile");
-};
-
-
 const BottomTabNav = () => {
-
-  const history = useHistory();
-
+  const go = useGo();
 
   return (
     <div className={styles.container}>
       <div className={styles.flex}>
-        <button className={styles.home} onClick={() => goToHomePage(history)}></button>
-        <button className={styles.cart}  onClick={() => goToCartPage(history)}></button>
-        <button className={styles.avatar} onClick={() => goToProfilePage(history)}></button>
+        <button className={styles.home} onClick={go.home}></button>
+        <button className={styles.cart} onClick={go.cart}></button>
+        <button className={styles.avatar} onClick={go.profile}></button>
       </div>
     </div>
   );
