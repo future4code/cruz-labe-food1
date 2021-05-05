@@ -2,7 +2,6 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 // const classes = classNames(styles.icon, styles.home);
 import { useHistory } from 'react-router-dom'
-// import ErrorBoundary from '../../containers/ErrorBoundary'
 
 export const goToHomePage = (history) => {
   history.push("/");
