@@ -29,6 +29,24 @@
   margin: 10px 46px 9px 47px;
 }
 
+button {
+  border: none;
+  background-color: rgba(0,0,0,0);
+  outline: none !important;
+  box-shadow:none;
+
+}
+button:active {
+  background-color: rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  outline: none !important;
+  box-shadow:none;
+
+}
+
+button:focus:not(:focus-visible) { outline: none }
+
+
 .home {
   background-image: url("/assets/icons/homepage.svg");
   width: 27px;
