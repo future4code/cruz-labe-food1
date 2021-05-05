@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-// const classes = classNames(styles.icon, styles.home);
 import { useHistory } from 'react-router-dom'
+
+// const classes = classNames(styles.icon, styles.home);
 
 export const goToHomePage = (history) => {
   history.push("/");
@@ -25,7 +26,7 @@ const BottomTabNav = () => {
     <div className={styles.container}>
       <div className={styles.flex}>
         <button className={styles.home} onClick={() => goToHomePage(history)}></button>
-        <button className={styles.cart} onClick={() => goToCartPage(history)}></button>
+        <button className={styles.cart}  onClick={() => goToCartPage(history)}></button>
         <button className={styles.avatar} onClick={() => goToProfilePage(history)}></button>
       </div>
     </div>
