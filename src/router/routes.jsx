@@ -6,7 +6,7 @@ import {
   Adress,
   Cart,
   Profile,
-  RestaurantsDetail,
+  RestaurantDetail,
   NotFound,
 } from "pages";
 
@@ -20,7 +20,7 @@ const Router = () => {
         <Route exact path="/adress" component={Adress} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/restaurants/:name" component={RestaurantsDetail} />
+        <Route exact path="/restaurant/:id" component={RestaurantDetail} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

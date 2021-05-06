@@ -1,33 +1,29 @@
-import axios from 'axios'
-import {apiURL} from 'constants/project'
-// import { useEffect, useState } from "react";
-
-const baseURL = apiURL
-
-const rappi4 = axios.create({baseURL})
+import { useCallback, useEffect, useState } from "react";
 
 // REQUEST DATA
-// export const useRequestData = (path, initialState) => {
-//   const [data, setData] = useState(initialState);
-//   const user = JSON.parse(localStorage.getItem("user"));
+export const useRequestData = (service, args, initialValue) => {
+  const [data, setData] = useState(initialValue);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState({});
 
-//   const getData = () => {
-//     axios
-//       .get(`${baseURL}${path}`, {
-//         headers: {
-//           auth: user.token,
-//         },
-//       })
-//       .then((response) => {
-//         console.log(response.data);
-//         setData(response.data)
-//       })
-//       .catch((err) => console.log(err.message))
-//   }
+  const getData = useCallback(
+    async (options) => {
+      setIsLoading(true);
+      const r = await service({ ...args, ...options });
+      if (r?.message) return setError({ hasError: true, ...r });
+      setData(r.data);
+      setIsLoading(false);
+    },
+    [args, service]
+  );
 
-//   useEffect(() => {
-//    getData()
-//   }, []);
+  useEffect(() => {
+    console.log({ service }, { args });
+    if (service && args) {
+      getData();
+    }
+  }, [service, args, getData]);
 
-//   return [data, getData];
-// };
+  return [data, getData];
+};

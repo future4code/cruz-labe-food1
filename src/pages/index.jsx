@@ -3,7 +3,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Adress from "./Adress";
 import Profile from "./Profile";
-import RestaurantsDetail from "./RestaurantsDetail";
+import RestaurantDetail from "./RestaurantDetail";
 import Signup from "./Signup";
 import NotFound from "./NotFound";
 
@@ -13,7 +13,7 @@ export {
   Login,
   Profile,
   Adress,
-  RestaurantsDetail,
+  RestaurantDetail,
   Signup,
   NotFound,
 };
