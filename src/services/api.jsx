@@ -10,7 +10,6 @@ const base = async (args) => {
   const token = localStorage.getItem("token");
   try {
     const r = await api({ ...args, headers: { auth: token } });
-    console.log("response", r);
     r.data.token && localStorage.setItem("token", r.data.token);
     return r.data;
   } catch (e) {
@@ -32,4 +31,31 @@ export const getProfile = async () => base({ url: "profile" });
 
 export const getRestaurants = async () => base({ url: "restaurants" });
 
-export default { login, signup, address, getProfile, getRestaurants };
+export const getRestaurantDetail = async (id) =>
+  base({ url: `restaurants/${id}` });
+
+export const getFullAdress = async () => base({ url: "profile/address" });
+
+export const updateProfile = async (data) =>
+  base({ url: "profile", method: "put" });
+
+export const placeOrder = async (data, id) =>
+  base({ url: `restaurants/${id}/order` });
+
+export const getActiveOrder = async () => base({ url: "active-order" });
+
+export const getHistory = async () => base({ url: "orders/history" });
+
+export default {
+  login,
+  signup,
+  address,
+  getProfile,
+  getRestaurants,
+  getRestaurantDetail,
+  getFullAdress,
+  updateProfile,
+  placeOrder,
+  getActiveOrder,
+  getHistory,
+};

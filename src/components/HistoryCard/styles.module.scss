@@ -1,0 +1,18 @@
+.container {
+  border: 1px solid var(--background-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.title {
+  color: var(--primary);
+}
+
+.date {
+  font-size: 0.75rem;
+}
+
+.value {
+  text-transform: uppercase;
+  color: var(--text-primary);
+}

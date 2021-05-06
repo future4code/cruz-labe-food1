@@ -1,4 +1,3 @@
-import { RestaurantsDetail } from "pages";
 import { useHistory } from "react-router-dom";
 
 const useGo = () => {
@@ -11,6 +10,7 @@ const useGo = () => {
   const profile = () => history.push("/profile");
   const editInfo = () => history.push("/editinfo");
   const editAdress = () => history.push("/editadress");
+  const restaurant = (id) => history.push({ pathname: `restaurant/${id}` });
   const cart = () => history.push("/cart");
   const back = () => history.goBack();
 
@@ -22,6 +22,7 @@ const useGo = () => {
     profile,
     editInfo,
     editAdress,
+    restaurant,
     cart,
     back,
   };

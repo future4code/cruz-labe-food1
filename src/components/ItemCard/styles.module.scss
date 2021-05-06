@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  border: 1px solid var(--grey);
+  margin: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: flex;
+
+  img {
+    width: 50%;
+    object-fit: fill;
+  }
+
+  h4 {
+    color: var(--primary);
+    margin-bottom: 3px;
+  }
+
+  @mixin flexWithPadding($padding) {
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > div:first-of-type {
+    @include flexWithPadding(0px);
+    flex-grow: 1;
+    justify-content: space-between;
+    margin: 2px 0px 0px 2px;
+
+    > p:first-of-type {
+      font-size: 0.9rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  button {
+    background-color: red;
+    padding: 0;
+    margin-left: auto;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+}

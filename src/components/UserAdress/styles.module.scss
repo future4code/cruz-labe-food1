@@ -1,0 +1,17 @@
+.container {
+  line-height: 2;
+  background-color: var(--background-secondary);
+  position: relative;
+  padding: 1rem;
+}
+
+.title {
+  color: var(--text-secondary);
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translate(0, -50%);
+}
