@@ -4,19 +4,33 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
+  const [itemsQuantity, setItemsQuantity] = useState(0);
 
-  const add = (item) => {
-    setItems([...items, item])
+  const add = (newItem) => {
+    const index = items.findIndex((i) => i.id === newItem.id);
+    let newItems = [...items];
+    if (index === -1) {
+      newItems.push({ ...newItem, amount: itemsQuantity });
+    } else {
+      newItems[index].amount += itemsQuantity;
+    }
+    setItems(newItems);
+    alert(`${newItem.name} foi adicionado ao seu pedido!`);
   };
 
-  const remove = (id) => {
-    const newList = items.filter((item) => item.id !== id)
-    setItems(newList)
-
+  const remove = (itemRemove) => {
+    const index = items.findIndex((i) => i.id === itemRemove.id);
+    let newItems = [...items];
+    if (newItems[index].amount === 1) {
+      newItems.splice(index, 1);
+    } else {
+      newItems[index].amount -= 1;
+    }
+    setItems(newItems);
   };
 
   return (
-    <CartContext.Provider value={{ items, add, remove }}>
+    <CartContext.Provider value={{ items, add, remove, itemsQuantity, setItemsQuantity }}>
       {children}
     </CartContext.Provider>
   );
