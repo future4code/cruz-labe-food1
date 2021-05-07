@@ -1,11 +1,20 @@
+import {Component} from 'react'
+import Error from 'components/Error'
 
-const ErrorBoundary = () => {
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {error: false, message: ''}
+  }
 
-    return (
-        <>
-        <h2>Ops! Algo deu errado :(</h2>
-        </>
-    )
+  getDerivedStateFromError(error) {
+    return {error: true, message: error}
+  }
+
+  render() {
+    if (this.state.error) return <Error error={this.state} />
+    return this.props.children
+  }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary

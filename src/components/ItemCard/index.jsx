@@ -1,6 +1,14 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
+import {CartContext} from 'contexts/cart'
+import {useContext} from 'react'
 
-const ItemCard = ({ category, description, id, name, photoUrl, price }) => {
+const ItemCard = product => {
+  const cart = useContext(CartContext)
+  // cart.items
+  // cart.add()
+  // cart.remove()
+  // cart.clear()
+  const {category, description, id, name, photoUrl, price} = product
   return (
     <>
       {name ? (
@@ -10,21 +18,23 @@ const ItemCard = ({ category, description, id, name, photoUrl, price }) => {
           <div>
             <h4>{name}</h4>
             <p>{description}</p>
+            <p>
+              R$
+              {price.toFixed(2).replace('.', ',')}
+            </p>
+          </div>
 
-            <div>
-              <p>
-                R$
-                {price.toFixed(2).replace(".", ",")}
-              </p>
-              <button>+</button>
-            </div>
+          <div className={styles.buttons}>
+            <button onClick={() => cart.remove(product)}>-</button>
+            <div>{() => cart.amount(product)}</div>
+            <button onClick={() => cart.add(product)}>+</button>
           </div>
         </div>
       ) : (
-        "Loading"
+        <p>Loading</p>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ItemCard;
+export default ItemCard

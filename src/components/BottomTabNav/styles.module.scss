@@ -1,5 +1,5 @@
 .container {
-  position: fixed;
+  position: sticky;
   width: 100%;
   margin-bottom: 0px;
   margin-left: 0px;
@@ -50,7 +50,7 @@ button:focus:not(:focus-visible) {
 }
 
 .home {
-  background-image: url("/assets/icons/homepage.svg");
+  background-image: url('/assets/icons/homepage.svg');
   background-repeat: no-repeat;
   background-position: center;
 
@@ -60,13 +60,13 @@ button:focus:not(:focus-visible) {
 }
 .home:hover,
 .home:active {
-  background-image: url("/assets/icons/homepage-active.svg");
+  background-image: url('/assets/icons/homepage-active.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .cart {
-  background-image: url("/assets/icons/shopping-cart.svg");
+  background-image: url('/assets/icons/shopping-cart.svg');
   background-repeat: no-repeat;
   background-position: center;
   width: 27px;
@@ -75,13 +75,13 @@ button:focus:not(:focus-visible) {
 }
 .cart:hover,
 .cart:active {
-  background-image: url("/assets/icons/shopping-cart-active.svg");
+  background-image: url('/assets/icons/shopping-cart-active.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .avatar {
-  background-image: url("/assets/icons/avatar.svg");
+  background-image: url('/assets/icons/avatar.svg');
   background-repeat: no-repeat;
   background-position: center;
 
@@ -91,7 +91,7 @@ button:focus:not(:focus-visible) {
 }
 .avatar:hover,
 .avatar:active {
-  background-image: url("/assets/icons/avatar-active.svg");
+  background-image: url('/assets/icons/avatar-active.svg');
   background-repeat: no-repeat;
   background-position: center;
 }

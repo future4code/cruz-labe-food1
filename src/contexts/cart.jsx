@@ -1,43 +1,52 @@
-import { useState, createContext } from "react";
+import {useState, createContext} from 'react'
 
-export const CartContext = createContext();
+export const CartContext = createContext()
 
-export const CartProvider = ({ children }) => {
-  const [items, setItems] = useState([]);
-  const [itemsQuantity, setItemsQuantity] = useState(0);
+export const CartProvider = ({children}) => {
+  const [items, setItems] = useState([])
+  const [error, setError] = useState(false)
+  console.table(items)
 
-  const add = (newItem) => {
-    const index = items.findIndex((i) => i.id === newItem.id);
-    let newItems = [...items];
+  const add = product => {
+    let newCartItems = [...items]
+    const index = newCartItems.findIndex(item => item.id === product.id)
 
-    if (index === -1) {
-      newItems.push({ ...newItem, amount: itemsQuantity });
+    if (index >= 0) newCartItems[index].quantity += 1
+    else newCartItems = [...newCartItems, {...product, quantity: 1}]
+
+    setItems(newCartItems)
+  }
+
+  const remove = product => {
+    let cartItems = [...items]
+    const index = cartItems.findIndex(item => item.id === product.id)
+
+    if (index >= 0) {
+      const itemToRemove = cartItems[index]
+      if (itemToRemove.quantity > 1) itemToRemove.quantity -= 1
+      else cartItems.splice(index, 1)
     } else {
-      newItems[index].amount += itemsQuantity;
+      return setError('Item nao existe no carrinho')
     }
-    setItems(newItems);
-    alert(`${newItem.name} foi adicionado ao seu pedido!`);
-  };
 
-  const remove = (itemRemove) => {
-    const index = items.findIndex((i) => i.id === itemRemove.id);
-    let newItems = [...items];
-    if (newItems[index].amount === 1) {
-      newItems.splice(index, 1);
-    } else {
-      newItems[index].amount -= 1;
-    }
-    setItems(newItems);
-  };
+    setItems(cartItems)
+  }
+
+  const amount = product => items.find(item => item.id === product.id)?.quantity
+
+  const sum = () =>
+    items.reduce((sum, item) => (sum += item.price * item.quantity), 0)
+
+  const clear = () => setItems([])
 
   return (
     <CartContext.Provider
-      value={{ items, add, remove, itemsQuantity, setItemsQuantity }}
+      value={{items, error, add, remove, sum, amount, clear}}
     >
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}
 
 // const cart = useContext(CartContext)
 

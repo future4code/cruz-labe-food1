@@ -1,3 +1,8 @@
+@use 'mixins' as *;
+
+.container {
+  @include container;
+}
 .title {
   font-size: 5rem;
   text-align: center;
