@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import useGo from "hooks/useGo";
+import { useGo } from "hooks/useGo";
 import styles from "./styles.module.scss";
 
 const Header = ({ title, showArrow, showLogo, bottom }) => {

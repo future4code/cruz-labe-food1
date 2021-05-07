@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-const useGo = () => {
+export const useGo = () => {
   const history = useHistory();
 
   const home = () => history.push("/");
@@ -27,5 +27,3 @@ const useGo = () => {
     back,
   };
 };
-
-export default useGo;

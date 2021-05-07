@@ -1,29 +1,32 @@
 import { useCallback, useEffect, useState } from "react";
 
-// REQUEST DATA
-export const useRequestData = (service, args, initialValue) => {
+// REQUEST DATA CUSTOM HOOK
+export const useRequestData = (service, initialValue, args) => {
   const [data, setData] = useState(initialValue);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [error, setError] = useState({});
 
-  const getData = useCallback(
-    async (options) => {
-      setIsLoading(true);
+  const getData = useCallback(async (options) => {
+    try {
       const r = await service({ ...args, ...options });
-      if (r?.message) return setError({ hasError: true, ...r });
-      setData(r.data);
-      setIsLoading(false);
-    },
-    [args, service]
-  );
+
+      if (r?.message) {
+        return setIsError(r);
+      }
+
+      if (args?.selectProp && r?.[args.selectProp]) {
+        setData(r?.[args.selectProp]);
+      } else setData(r);
+    } catch (e) {
+      console.error(e);
+      setIsError(e);
+    }
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
-    console.log({ service }, { args });
-    if (service && args) {
-      getData();
-    }
-  }, [service, args, getData]);
+    getData();
+  }, [getData]);
 
-  return [data, getData];
+  return [data, isLoading, isError, getData];
 };

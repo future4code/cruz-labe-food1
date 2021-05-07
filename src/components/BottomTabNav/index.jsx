@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { useHistory } from "react-router-dom";
-import useGo from "hooks/useGo";
+import { useGo } from "hooks/useGo";
 
 // const classes = classNames(styles.icon, styles.home);
 

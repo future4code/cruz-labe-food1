@@ -1,10 +1,8 @@
-import useGo from "hooks/useGo";
+import { useGo } from ".";
 
-const useProtectedPage = () => {
+export const useProtectedPage = () => {
   const go = useGo();
   if (!localStorage.getItem("token")) {
     go.login();
   }
 };
-
-export default useProtectedPage;
