@@ -1,5 +1,4 @@
 .container {
-  width: 100%;
   border: 1px solid var(--grey);
   margin: 1rem;
   border-radius: 10px;
@@ -48,5 +47,16 @@
     height: 30px;
     width: 30px;
     text-align: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div {
+    width: 30px;
+    height: 30px;
   }
 }

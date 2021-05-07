@@ -1,11 +1,18 @@
+import Layout from 'components/Layout';
+import ErrorBoundary from 'containers/ErrorBoundary';
+import GlobalState from 'contexts/GlobalState';
 import Router from 'router/routes';
 import './styles/global.scss';
 
 function App() {
   return (
-        <div className='App'>
+    <ErrorBoundary>
+      <GlobalState>
+        <Layout>
           <Router />
-        </div>
+        </Layout>
+      </GlobalState>
+    </ErrorBoundary>
   );
 }
 
