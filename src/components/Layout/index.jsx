@@ -10,7 +10,7 @@ const Layout = ({children}) => {
 
   return (
     <div className={styles.container}>
-      <Header {...theme} />
+      <Header {...theme.headerOptions} />
       {children}
       {theme.width < 600 ? <BottomTabNav /> : <Footer />}
     </div>

@@ -3,12 +3,14 @@ import styles from './styles.module.scss'
 import {name} from 'constants/project'
 import {useForm, useProtectedPage} from 'hooks'
 import SearchInput from 'components/SearchInput'
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import * as api from 'services/api'
 import Restaurants from 'components/Restaurants'
+import {ThemeContext} from 'contexts/theme'
 
 const Home = () => {
   useProtectedPage()
+  const theme = useContext(ThemeContext)
   const {register} = useForm({search: ''})
   const [restaurants, setRestaurants] = useState([])
 
@@ -19,11 +21,13 @@ const Home = () => {
       r?.restaurants && setRestaurants(r?.restaurants)
     }
     getData()
+
+    theme.setHeaderOptions({title: name})
   }, [])
 
   return (
     <>
-      <Header title={name} />
+      {/* <Header title={name} /> */}
 
       <div className={styles.container}>
         <SearchInput
