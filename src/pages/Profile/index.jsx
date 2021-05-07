@@ -2,13 +2,10 @@ import styles from './styles.module.scss'
 import BottomTabNav from 'components/BottomTabNav'
 import Header from 'components/Header'
 import {useEffect, useState} from 'react'
-import api from 'services/api'
+import * as api from 'services/api'
 import UserInfo from 'components/UserInfo'
-import UserAdress from 'components/UserAdress'
-import CategoryTitle from 'components/CategoryTitle'
-import HistoryCard from 'components/HistoryCard'
+import UserAddress from 'components/UserAddress'
 import History from 'components/History'
-// import { useRequest } from "./hooks";
 
 const Profile = () => {
   const [user, setUser] = useState({})
@@ -28,7 +25,7 @@ const Profile = () => {
     <div className={styles.container}>
       <Header title='Meu perfil' showArrow />
       <UserInfo {...user} />
-      <UserAdress address={user.address} title='Endereço cadastrado' />
+      <UserAddress address={user.address} title='Endereço cadastrado' />
       <History />
       <BottomTabNav />
     </div>

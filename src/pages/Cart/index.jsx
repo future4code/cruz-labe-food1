@@ -1,19 +1,17 @@
 import {CartContext} from 'contexts/cart'
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import {useRequestData} from 'hooks'
-import api from 'services/api'
+import * as api from 'services/api'
 import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
 import ItemCard from 'components/ItemCard'
-import UserAdress from 'components/UserAdress'
+import UserAddress from 'components/UserAddress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
 
-// const
-
 const Cart = () => {
   const cart = useContext(CartContext)
-  const [user, isLoading, isError] = useRequestData(
+  const [user, isLoading] = useRequestData(
     api.getProfile,
     {},
     {selectProp: 'user'}
@@ -27,7 +25,7 @@ const Cart = () => {
       {isLoading ? (
         'Loading'
       ) : (
-        <UserAdress address={user.address} title='Endereço de entrega' />
+        <UserAddress address={user.address} title='Endereço de entrega' />
       )}
       <AddressRestaurant className={styles.AddressRestaurant} />
       {cart.items.map(item => (
@@ -45,7 +43,7 @@ const Cart = () => {
 }
 
 const AddressRestaurant = props => {
-  return 'ADRESS RESTAURANTE'
+  return 'address RESTAURANTE'
 }
 
 export default Cart

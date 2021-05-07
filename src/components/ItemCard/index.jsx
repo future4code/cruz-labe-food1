@@ -8,7 +8,7 @@ const ItemCard = product => {
   // cart.add()
   // cart.remove()
   // cart.clear()
-  const {category, description, id, name, photoUrl, price} = product
+  const {description, name, photoUrl, price} = product
   return (
     <>
       {name ? (
@@ -26,7 +26,7 @@ const ItemCard = product => {
 
           <div className={styles.buttons}>
             <button onClick={() => cart.remove(product)}>-</button>
-            <div>{() => cart.amount(product)}</div>
+            <div>{cart.amount(product)}</div>
             <button onClick={() => cart.add(product)}>+</button>
           </div>
         </div>

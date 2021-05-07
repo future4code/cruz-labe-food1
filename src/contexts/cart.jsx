@@ -32,7 +32,8 @@ export const CartProvider = ({children}) => {
     setItems(cartItems)
   }
 
-  const amount = product => items.find(item => item.id === product.id)?.quantity
+  const amount = product =>
+    items.find(item => item.id === product.id)?.quantity || 0
 
   const sum = () =>
     items.reduce((sum, item) => (sum += item.price * item.quantity), 0)
