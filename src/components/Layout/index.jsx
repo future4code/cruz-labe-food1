@@ -2,7 +2,7 @@ import BottomTabNav from 'components/BottomTabNav'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import {ThemeContext} from 'contexts/theme'
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import styles from './styles.module.scss'
 
 const Layout = ({children}) => {

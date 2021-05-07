@@ -1,18 +1,15 @@
 import Header from 'components/Header'
 import styles from './styles.module.scss'
 import {name} from 'constants/project'
-import Input from 'components/Input'
-import BottomTabNav from 'components/BottomTabNav'
-import {useGo, useForm, useProtectedPage} from 'hooks'
+import {useForm, useProtectedPage} from 'hooks'
 import SearchInput from 'components/SearchInput'
 import {useEffect, useState} from 'react'
-import api from 'services/api'
+import * as api from 'services/api'
 import Restaurants from 'components/Restaurants'
 
 const Home = () => {
   useProtectedPage()
-  const go = useGo()
-  const {form, register, control, reset} = useForm({search: ''})
+  const {register} = useForm({search: ''})
   const [restaurants, setRestaurants] = useState([])
 
   useEffect(() => {
