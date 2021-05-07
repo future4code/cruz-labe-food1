@@ -9,6 +9,7 @@ export const CartProvider = ({ children }) => {
   const add = (newItem) => {
     const index = items.findIndex((i) => i.id === newItem.id);
     let newItems = [...items];
+
     if (index === -1) {
       newItems.push({ ...newItem, amount: itemsQuantity });
     } else {
