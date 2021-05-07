@@ -1,4 +1,4 @@
-import useGo from "hooks/useGo";
+import { useGo } from "hooks";
 import styles from "./styles.module.scss";
 
 const RestaurantCard = ({ id, name, logoUrl, deliveryTime, shipping }) => {

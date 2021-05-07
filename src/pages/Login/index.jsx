@@ -4,8 +4,7 @@ import Input from "components/Input";
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
 import api from "services/api";
-import useForm from "hooks/useForm";
-import useGo from "hooks/useGo";
+import { useGo, useForm } from "hooks";
 
 const Login = () => {
   const { form, register, control, reset } = useForm({});

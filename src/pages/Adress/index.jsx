@@ -2,9 +2,8 @@ import styles from "./styles.module.scss";
 import BottomTabNav from "components/BottomTabNav";
 import Input from "components/Input";
 import Header from "components/Header";
-import useForm from "hooks/useForm";
 import Button from "components/Button";
-import useGo from "hooks/useGo";
+import { useGo, useForm } from "hooks";
 import api from "services/api";
 
 const Adress = () => {

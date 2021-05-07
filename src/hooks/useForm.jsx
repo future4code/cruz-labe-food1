@@ -1,13 +1,6 @@
 import { useState } from "react";
 
-// form.login
-// form.password
-// form.search
-// form.adress
-// form.name
-// form.cpf
-
-const useForm = (initialValue) => {
+export const useForm = (initialValue) => {
   const [form, setForm] = useState(initialValue);
 
   const control = (e) => {
@@ -27,5 +20,3 @@ const useForm = (initialValue) => {
 
   return { form, register, control, reset };
 };
-
-export default useForm;

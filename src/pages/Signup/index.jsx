@@ -1,8 +1,7 @@
 import Button from "components/Button";
 import Header from "components/Header";
 import Input from "components/Input";
-import useForm from "hooks/useForm";
-import useGo from "hooks/useGo";
+import { useGo, useForm } from "hooks";
 import api from "services/api";
 import styles from "./styles.module.scss";
 
