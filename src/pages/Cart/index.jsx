@@ -9,6 +9,7 @@ import UserAdress from 'components/UserAdress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
 import RadioButton from 'components/RadioButton'
+import Button from 'components/Button'
 
 // const
 
@@ -34,12 +35,14 @@ const Cart = () => {
       {cart.items.map(item => (
         <ItemCard key={item.id} {...item} />
       ))}
+      <h4>Frete R$ 6,00</h4>
       <h3>Total: {cart.sum().toFixed(2)}</h3>
         <br />
       <CategoryTitle title='Forma de pagamento' />
-      <RadioButton></RadioButton>
+      <RadioButton ></RadioButton>
+        <Button label = "Comprar">      
+        </Button>
 
-      <BottomTabNav />
     </div>
   )
 }
