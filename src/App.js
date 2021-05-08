@@ -8,9 +8,9 @@ function App() {
   return (
     <ErrorBoundary>
       <GlobalState>
-        <Layout>
+        {/* <Layout> */}
           <Router />
-        </Layout>
+        {/* </Layout> */}
       </GlobalState>
     </ErrorBoundary>
   );

@@ -34,10 +34,10 @@ const Cart = () => {
         <ItemCard key={item.id} {...item} />
       ))}
       <CategoryTitle title='Forma de pagamento' />
-      <h3>Total: {cart.sum()}</h3>
+      <h3>Total: {cart.sum().toFixed(2)}</h3>
 
       <h3> .... Aqui vem o Radius pagto</h3>
-      <h3>Debito ou credito senhor?</h3>
+      <h3>Debito ou credito?</h3>
 
       <BottomTabNav />
     </div>
