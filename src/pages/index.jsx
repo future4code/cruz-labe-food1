@@ -1,19 +1,8 @@
-import Cart from "./Cart";
-import Home from "./Home";
-import Login from "./Login";
-import Adress from "./Adress";
-import Profile from "./Profile";
-import RestaurantDetail from "./RestaurantDetail";
-import Signup from "./Signup";
-import NotFound from "./NotFound";
-
-export {
-  Cart,
-  Home,
-  Login,
-  Profile,
-  Adress,
-  RestaurantDetail,
-  Signup,
-  NotFound,
-};
+export {default as Address} from './Address'
+export {default as Cart} from './Cart'
+export {default as Home} from './Home'
+export {default as Login} from './Login'
+export {default as Profile} from './Profile'
+export {default as RestaurantDetail} from './RestaurantDetail'
+export {default as Signup} from './Signup'
+export {default as NotFound} from './NotFound'

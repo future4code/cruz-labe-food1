@@ -1,23 +1,23 @@
-import CategoryTitle from "components/CategoryTitle";
-import HistoryCard from "components/HistoryCard";
-import Loading from "components/Loading";
-import { useRequestData } from "hooks";
-import api from "services/api";
-import styles from "./styles.module.scss";
+import CategoryTitle from 'components/CategoryTitle'
+import HistoryCard from 'components/HistoryCard'
+import Loading from 'components/Loading'
+import {useRequestData} from 'hooks'
+import * as api from 'services/api'
+import styles from './styles.module.scss'
 
 const History = () => {
   const [history, isLoading, isError] = useRequestData(api.getHistory, [], {
-    selectProp: "orders",
-  });
+    selectProp: 'orders',
+  })
 
   return (
     <div className={styles.container}>
-      <CategoryTitle title="Histórico de pedidos" />
+      <CategoryTitle title='Histórico de pedidos' />
 
       {isLoading ? (
         <Loading />
       ) : (
-        history.map((order) => <HistoryCard {...order} />)
+        history.map(order => <HistoryCard {...order} />)
       )}
 
       {!history.length && !isLoading && !isError && (
@@ -26,7 +26,7 @@ const History = () => {
 
       {isError && <p>Algo de certo está errado...</p>}
     </div>
-  );
-};
+  )
+}
 
-export default History;
+export default History

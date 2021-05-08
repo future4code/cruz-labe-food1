@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import { useGo } from "hooks/useGo";
-import styles from "./styles.module.scss";
+import classNames from 'classnames'
+import {useGo} from 'hooks/useGo'
+import styles from './styles.module.scss'
 
-const Header = ({ title, showArrow, showLogo, bottom }) => {
-  const go = useGo();
-  const c = classNames;
+const Header = ({title, showArrow, showLogo, bottom}) => {
+  const go = useGo()
+  const c = classNames
   // go.home()
   // go.back()
   // go.login()
@@ -22,8 +22,8 @@ const Header = ({ title, showArrow, showLogo, bottom }) => {
         {showArrow && (
           <img
             className={styles.arrowBack}
-            src="/icons/back.svg"
-            alt="Seta para voltar"
+            src='/icons/back.svg'
+            alt='Seta para voltar'
             onClick={go.back}
           />
         )}
@@ -39,15 +39,15 @@ const Header = ({ title, showArrow, showLogo, bottom }) => {
         <>
           <img
             className={styles.logo}
-            src="/icons/logo.svg"
-            alt="Imagem com texto escrito Rappi4 com letras grandes"
+            src='/icons/logo.svg'
+            alt='Imagem com texto escrito Rappi4 com letras grandes'
           />
           <h1 className={styles.title}>{title}</h1>
         </>
       )}
       {bottom && <h1 className={c(styles.title, styles.margin)}>{title}</h1>}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

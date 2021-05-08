@@ -1,11 +1,8 @@
-import classNames from "classnames";
-import styles from "./styles.module.scss";
-import { useGo } from "hooks/useGo";
-
-// const classes = classNames(styles.icon, styles.home);
+import styles from './styles.module.scss'
+import {useGo} from 'hooks/useGo'
 
 const BottomTabNav = () => {
-  const go = useGo();
+  const go = useGo()
 
   return (
     <div className={styles.container}>
@@ -15,7 +12,7 @@ const BottomTabNav = () => {
         <button className={styles.avatar} onClick={go.profile}></button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BottomTabNav;
+export default BottomTabNav
