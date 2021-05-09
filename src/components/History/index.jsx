@@ -17,7 +17,7 @@ const History = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        history.map(order => <HistoryCard {...order} />)
+        history.map(order => <HistoryCard key={order.createdAt} {...order} />)
       )}
 
       {!history.length && !isLoading && !isError && (

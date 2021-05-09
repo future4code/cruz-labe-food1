@@ -47,7 +47,7 @@ const Login = () => {
           img={passwordVisible ? '/icons/password-visible.svg' : '/icons/password.svg' }
           showPassword={showPassword}
         />
-        <Button>Entrar</Button>
+        <Button label = "Entrar">Entrar</Button>
         <p className={styles.text}>
           Não possui cadastro? <NavLink to='/signup'>Clique aqui.</NavLink>
         </p>

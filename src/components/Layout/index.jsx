@@ -9,11 +9,13 @@ const Layout = ({children}) => {
   const theme = useContext(ThemeContext)
 
   return (
-    <div className={styles.container}>
-      <Header {...theme.headerOptions} />
-      {children}
+    <>
+      <div className={styles.container}>
+        <Header {...theme.headerOptions} />
+        {children}
+      </div>
       {theme.width < 600 ? <BottomTabNav /> : <Footer />}
-    </div>
+    </>
   )
 }
 

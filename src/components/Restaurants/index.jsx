@@ -1,15 +1,12 @@
-import styles from "./styles.module.scss";
-import RestaurantCard from "components/RestaurantCard";
+import RestaurantCard from 'components/RestaurantCard'
+import styles from './styles.module.scss'
 
-const Restaurants = ({ restaurants }) => {
-  console.log("rest", restaurants);
-  return (
-    <div className={styles.container}>
-      {restaurants.map((r) => (
-        <RestaurantCard key={r.id} {...r} />
-      ))}
-    </div>
-  );
-};
+const Restaurants = ({list, isLoading}) => (
+  <div className={styles.container}>
+    {list.map(r => (
+      <RestaurantCard key={r.id} {...r} />
+    ))}
+  </div>
+)
 
-export default Restaurants;
+export default Restaurants

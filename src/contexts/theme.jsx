@@ -14,12 +14,8 @@ export const ThemeProvider = ({children}) => {
   console.log('screen', headerOptions)
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      setScreen(getScreen())
-    })
-    return () => {
-      window.removeEventListener('resize', () => {})
-    }
+    window.addEventListener('resize', () => setScreen(getScreen()))
+    return () => window.removeEventListener('resize', () => {})
   }, [])
 
   return (
