@@ -8,8 +8,8 @@ export const useGo = () => {
   const signup = () => history.push('/signup')
   const address = () => history.push('address')
   const profile = () => history.push('/profile')
-  const editInfo = () => history.push('/editinfo')
-  const editaddress = () => history.push('/editaddress')
+  const editInfo = state => history.push({pathname: '/editinfo', state})
+  const editAddress = () => history.push('/editaddress')
   const restaurant = id => history.push({pathname: `restaurant/${id}`})
   const cart = () => history.push('/cart')
   const back = () => history.goBack()
@@ -21,7 +21,7 @@ export const useGo = () => {
     address,
     profile,
     editInfo,
-    editaddress,
+    editAddress,
     restaurant,
     cart,
     back,

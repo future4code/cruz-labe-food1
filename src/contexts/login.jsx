@@ -1,14 +1,15 @@
 import {createContext, useState} from 'react'
 
-defaultValues = {
+const defaultValues = {
   isLogged: false,
   user: {},
+  login: () => {},
   logout: () => {},
 }
 
-export const LoginContext = createContext(defaultValues)
+export const AuthContext = createContext(defaultValues)
 
-export const LoginProvider = () => {
+export const AuthProvider = () => {
   const [isLogged, setIsLogged] = useState(false)
   const [user, setUser] = useState({})
 
@@ -18,5 +19,10 @@ export const LoginProvider = () => {
     setIsLogged(false)
   }
 
-  // const login
+  const login = user => {
+    setUser(user)
+    setIsLogged(true)
+  }
+
+  return {user, isLogged, login, logout}
 }

@@ -12,13 +12,9 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    console.log(form)
     const r = await api.login({...form})
-    console.log(r)
     if (r?.message) return console.log('Erro: ', r.message)
 
-    console.log(r)
-    localStorage.setItem('token', r.token)
     r.user.hasAddress ? go.home() : go.address()
   }
 

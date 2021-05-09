@@ -12,12 +12,8 @@ export const ThemeProvider = ({children}) => {
   const [screen, setScreen] = useState(getScreen())
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      setScreen(getScreen())
-    })
-    return () => {
-      window.removeEventListener('resize', () => {})
-    }
+    window.addEventListener('resize', () => setScreen(getScreen()))
+    return () => window.removeEventListener('resize', () => {})
   }, [])
 
   return (

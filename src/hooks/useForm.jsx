@@ -4,18 +4,18 @@ export const useForm = initialValue => {
   const [form, setForm] = useState(initialValue)
 
   const control = e => {
-    const {name, value} = e.target
-    setForm({...form, [name]: value})
+    const {name, dataset, value, textContent} = e.target
+    setForm({...form, [dataset.name || name]: value || textContent})
   }
 
   const reset = () => setForm(initialValue)
 
-  const register = name => ({
-    name,
-    id: name,
+  const register = (name, event) => ({
+    [event ? 'title' : 'name']: name,
+    [event ? 'data-name' : 'id']: name,
     value: form[name],
-    onChange: control,
+    [event || 'onChange']: control,
   })
 
-  return {form, register, control, reset}
+  return {form, register, control, reset, setForm}
 }

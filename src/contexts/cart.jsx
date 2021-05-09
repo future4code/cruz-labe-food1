@@ -1,20 +1,19 @@
 import {useState, createContext} from 'react'
 
-export const CartContext = createContext()
+export const CartContext = createContext({})
 
 export const CartProvider = ({children}) => {
   const [items, setItems] = useState([])
   const [error, setError] = useState(false)
-  console.table(items)
 
   const add = product => {
-    let newCartItems = [...items]
-    const index = newCartItems.findIndex(item => item.id === product.id)
+    let cartItems = [...items]
+    const index = cartItems.findIndex(item => item.id === product.id)
 
-    if (index >= 0) newCartItems[index].quantity += 1
-    else newCartItems = [...newCartItems, {...product, quantity: 1}]
+    if (index >= 0) cartItems[index].quantity += 1
+    else cartItems = [...cartItems, {...product, quantity: 1}]
 
-    setItems(newCartItems)
+    setItems(cartItems)
   }
 
   const remove = product => {
@@ -48,13 +47,3 @@ export const CartProvider = ({children}) => {
     </CartContext.Provider>
   )
 }
-
-// const cart = useContext(CartContext)
-
-// cria o context e export
-// cria o component com o provider e as operacoes export ele
-
-// objecto para usar
-// cart.items = retorna todos os items
-// cart.add(item) = adicionar novo item
-// cart.remove(item) = remove o item
