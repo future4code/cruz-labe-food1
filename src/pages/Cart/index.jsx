@@ -9,8 +9,7 @@ import ItemCard from 'components/ItemCard'
 import UserAddress from 'components/UserAddress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
-import { ThemeContext } from 'contexts/theme'
-import { useEffect } from 'react'
+import {ThemeContext} from 'contexts/theme'
 import RadioButton from 'components/RadioButton'
 import Button from 'components/Button'
 import AddressRestaurant from 'components/AddressRestaurant'
@@ -40,7 +39,6 @@ const Cart = props => {
   const [paymentMethod, setPaymentMethod] = useState('')
   const go = useGo()
 
-
   const purchase = async () => {
     console.log({cart})
     if (!paymentMethod) {
@@ -64,10 +62,8 @@ const Cart = props => {
   console.log({paymentMethod})
 
   useEffect(() => {
-    theme.setHeaderOptions({ title: "Carrinho"})
+    theme.setHeaderOptions({title: 'Carrinho'})
   })
-
-
 
   return (
     <div className={styles.container}>
@@ -88,7 +84,6 @@ const Cart = props => {
       <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton>
       <Button label='Comprar' action={purchase} />
       {loadingOrder && 'Finalizando pedido...'}
-
     </div>
   )
 }
