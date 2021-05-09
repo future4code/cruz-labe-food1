@@ -8,10 +8,19 @@ import RestaurantCard from 'components/RestaurantCard'
 import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
 import {CartContext} from 'contexts/cart'
+
 const RestaurantDetail = props => {
-  const {id} = useParams()
+import { useContext } from 'react'
+import { ThemeContext } from 'contexts/theme'
+import {name} from 'constants/project'
+  
+const RestaurantDetail = props => {
+    const {id} = useParams()
   const [restaurant, setRestaurant] = useState({})
   const cart = useContext(CartContext)
+
+    const theme = useContext(ThemeContext)
+
 
   useEffect(() => {
     const getData = async () => {
@@ -22,6 +31,7 @@ const RestaurantDetail = props => {
       setRestaurant(r.restaurant)
     }
     getData()
+    theme.setHeaderOptions({title: "Restaurante"})
   }, [id])
 
   useEffect(() => {
@@ -57,7 +67,9 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
+
       <Header title='Restaurante' showArrow />
+
       <RestaurantCard {...restaurant} />
       {productsByCategory(restaurant.products)}
     </div>

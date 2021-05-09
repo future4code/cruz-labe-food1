@@ -9,6 +9,8 @@ import ItemCard from 'components/ItemCard'
 import UserAddress from 'components/UserAddress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
+import { ThemeContext } from 'contexts/theme'
+import { useEffect } from 'react'
 import RadioButton from 'components/RadioButton'
 import Button from 'components/Button'
 import AddressRestaurant from 'components/AddressRestaurant'
@@ -21,6 +23,8 @@ import {useGo} from 'hooks/useGo'
 
 const Cart = props => {
   const cart = useContext(CartContext)
+  const theme = useContext(ThemeContext)
+
   const [user, isLoading, isError] = useRequestData(
     api.getProfile,
     {},
@@ -35,6 +39,7 @@ const Cart = props => {
   ] = useRequestData(api.placeOrder, {}, {selectProp: 'order', wait: true})
   const [paymentMethod, setPaymentMethod] = useState('')
   const go = useGo()
+
 
   const purchase = async () => {
     console.log({cart})
@@ -58,9 +63,14 @@ const Cart = props => {
 
   console.log({paymentMethod})
 
+  useEffect(() => {
+    theme.setHeaderOptions({ title: "Carrinho"})
+  })
+
+
+
   return (
     <div className={styles.container}>
-      <Header title='Meu carrinho' showArrow />
       {isLoading ? (
         'Loading'
       ) : (
@@ -78,6 +88,7 @@ const Cart = props => {
       <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton>
       <Button label='Comprar' action={purchase} />
       {loadingOrder && 'Finalizando pedido...'}
+
     </div>
   )
 }
