@@ -60,7 +60,7 @@ const RestaurantDetail = props => {
       {/* <h1 className={styles.title}>{restaurant?.name}</h1>; */}
       <RestaurantCard {...restaurant} />
       {productsByCategory(restaurant.products)}
-      <BottomTabNav />
+      {/* <BottomTabNav /> */}
     </div>
   )
 }

@@ -30,7 +30,6 @@ const Profile = () => {
       <UserInfo {...user} />
       <UserAdress address={user.address} title='Endereço cadastrado' />
       <History />
-      <BottomTabNav />
     </div>
   )
 }
