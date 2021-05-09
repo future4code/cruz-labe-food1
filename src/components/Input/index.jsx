@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-const Input = ({ label, name, img, ...args }) => {
+const Input = ({ label, name, img, showPassword, ...args }) => {
   return (
     <div className={styles.rectangle}>
       <label className={styles.label} htmlFor={name}>
@@ -9,7 +9,7 @@ const Input = ({ label, name, img, ...args }) => {
 
       <input className={styles.input} id={name} name={name} {...args} />
 
-      {img && <img className={styles.img} src={img} alt={name} />}
+      {img && <img onClick={showPassword} className={styles.img} src={img} alt={name} />}
     </div>
   );
 };

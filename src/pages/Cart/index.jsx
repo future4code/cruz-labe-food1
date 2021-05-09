@@ -2,13 +2,15 @@ import {CartContext} from 'contexts/cart'
 import {useContext, useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {useRequestData} from 'hooks'
-import api from 'services/api'
+import * as api from 'services/api'
 import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
 import ItemCard from 'components/ItemCard'
 import UserAdress from 'components/UserAdress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
+import { ThemeContext } from 'contexts/theme'
+import { useEffect } from 'react'
 import RadioButton from 'components/RadioButton'
 import Button from 'components/Button'
 import AddressRestaurant from 'components/AddressRestaurant'
@@ -36,19 +38,22 @@ const Cart = props => {
   //   getData()
   // }, [id])
 
-
   const cart = useContext(CartContext)
+  const theme = useContext(ThemeContext)
+
   const [user, isLoading, isError] = useRequestData(
     api.getProfile,
     {},
     {selectProp: 'user'}
   )
 
-  console.log(cart)
+  useEffect(() => {
+    theme.setHeaderOptions({ title: "Carrinho"})
+  })
+
 
   return (
     <div className={styles.container}>
-      <Header title='Meu carrinho' showArrow />
       {isLoading ? (
         'Loading'
       ) : (
@@ -70,7 +75,6 @@ const Cart = props => {
       <RadioButton ></RadioButton>
         <Button label = "Comprar">      
         </Button>
-
     </div>
   )
 }

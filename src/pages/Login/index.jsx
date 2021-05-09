@@ -1,14 +1,23 @@
 import Button from 'components/Button'
-import Header from 'components/Header'
 import Input from 'components/Input'
 import {NavLink} from 'react-router-dom'
 import styles from './styles.module.scss'
 import * as api from 'services/api'
 import {useGo, useForm} from 'hooks'
+import { useEffect } from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from 'contexts/theme'
+import { useState } from 'react'
 
 const Login = () => {
   const {form, register} = useForm({})
   const go = useGo()
+  const theme = useContext(ThemeContext)
+  const [passwordVisible, setPasswordVisible] = useState(false)
+
+  useEffect(() => {
+    theme.setHeaderOptions({showLogo: true})
+  },[])
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -18,9 +27,12 @@ const Login = () => {
     r.user.hasAddress ? go.home() : go.address()
   }
 
+  const showPassword = () => {
+    setPasswordVisible(!passwordVisible)
+  }
+
   return (
     <div className={styles.container}>
-      <Header title='Entrar' showLogo />
       <form action='' onSubmit={handleSubmit} className={styles.form}>
         <Input
           {...register('email')}
@@ -31,8 +43,9 @@ const Login = () => {
           {...register('password')}
           label='Senha*'
           placeholder='Mínimo 6 caracteres'
-          type='password'
-          img='/icons/password.svg'
+          type={passwordVisible ? 'text' : 'password'}
+          img={passwordVisible ? '/icons/password-visible.svg' : '/icons/password.svg' }
+          showPassword={showPassword}
         />
         <Button label = "Entrar">Entrar</Button>
         <p className={styles.text}>

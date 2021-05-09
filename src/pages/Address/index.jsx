@@ -5,10 +5,20 @@ import Header from 'components/Header'
 import Button from 'components/Button'
 import {useGo, useForm} from 'hooks'
 import * as api from 'services/api'
+import { useContext } from 'react'
+import { ThemeContext } from 'contexts/theme'
+import { useEffect } from 'react'
 
 const Address = () => {
   const go = useGo()
   const {form, register} = useForm({text: ''})
+  const theme = useContext(ThemeContext)
+
+  useEffect(() => {
+    theme.setHeaderOptions({title: 'Meu endereço',
+                            showArrow: true,
+                            bottom: true})
+  },[])
 
   const handleaddress = async e => {
     e.preventDefault()
@@ -20,7 +30,6 @@ const Address = () => {
 
   return (
     <div className={styles.container}>
-      <Header title='Meu Endereço' showArrow bottom />
       <form className={styles.form} onSubmit={handleaddress}>
         <Input
           type='text'
@@ -60,7 +69,7 @@ const Address = () => {
         />
         <Button label='Salvar' />
       </form>
-      <BottomTabNav />
+      {/* <BottomTabNav /> */}
     </div>
   )
 }

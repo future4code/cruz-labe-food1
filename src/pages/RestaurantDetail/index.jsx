@@ -7,12 +7,14 @@ import Category from 'components/CategoryTitle'
 import RestaurantCard from 'components/RestaurantCard'
 import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
+import { useContext } from 'react'
+import { ThemeContext } from 'contexts/theme'
+import {name} from 'constants/project'
 const RestaurantDetail = props => {
   const {id} = useParams()
   const [restaurant, setRestaurant] = useState({})
 
-  console.log(props, id)
-  console.log('AQUI', restaurant)
+    const theme = useContext(ThemeContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -23,6 +25,7 @@ const RestaurantDetail = props => {
       setRestaurant(r.restaurant)
     }
     getData()
+    theme.setHeaderOptions({title: "Restaurante"})
   }, [id])
 
   // sum category by array
@@ -56,7 +59,7 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
-      <Header title='Restaurante' showArrow />
+      {/* <Header title='Restaurante' showArrow /> */}
       {/* <h1 className={styles.title}>{restaurant?.name}</h1>; */}
       <RestaurantCard {...restaurant} />
       {productsByCategory(restaurant.products)}
