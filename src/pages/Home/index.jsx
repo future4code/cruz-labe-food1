@@ -8,6 +8,8 @@ import Restaurants from 'components/Restaurants'
 import Category from 'components/Category'
 import {ThemeContext} from 'contexts/theme'
 import {getCategorys} from 'utils/helpers'
+import {calcTime} from 'utils/helpers'
+import {formatPrice} from 'utils/helpers'
 
 const Home = () => {
   useProtectedPage()
@@ -18,8 +20,13 @@ const Home = () => {
     [],
     {selectProp: 'restaurants'}
   )
+  const [order, orderLoading, orderError] = useRequestData(
+    api.getActiveOrder,
+    {},
+    {selectProp: 'order'}
+  )
 
-  useEffect(() => theme.setHeaderOptions({title: name}), [])
+  // useEffect(() => theme.setHeaderOptions({title: name}), [])
 
   const categorys = getCategorys(restaurants)
 
@@ -39,6 +46,13 @@ const Home = () => {
       />
       <Category {...{categorys, register}} />
       <Restaurants {...{list, isLoading}} />
+      {!orderLoading && order?.totalPrice && (
+        <div className={styles.order}>
+          <p>Pedido em {order.restaurantName}</p>
+          <p>no valor de {formatPrice(order.totalPrice)}</p>
+          <p>Cegara em minutos {calcTime(order)} minutos</p>
+        </div>
+      )}
     </div>
   )
 }

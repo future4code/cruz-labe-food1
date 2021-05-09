@@ -6,11 +6,11 @@ export const useRequestData = (service, initialValue, args) => {
   const [data, setData] = useState(initialValue)
   const [isLoading, setIsLoading] = useState(!wait)
   const [isError, setIsError] = useState(false)
-  // console.log(Boolean(isLoading))
 
   const getData = useCallback(async options => {
+    console.log({options})
     try {
-      const r = await service({...args, ...options})
+      const r = await service({...options})
 
       if (r?.message) return setIsError(r)
 
@@ -27,5 +27,5 @@ export const useRequestData = (service, initialValue, args) => {
     !wait && getData()
   }, [wait, getData])
 
-  return [data, isLoading, isError, getData]
+  return [data, isLoading, isError, getData, setIsError]
 }

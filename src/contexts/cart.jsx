@@ -4,7 +4,10 @@ export const CartContext = createContext({})
 
 export const CartProvider = ({children}) => {
   const [items, setItems] = useState([])
+  const [restaurant, setRestaurant] = useState({})
   const [error, setError] = useState(false)
+
+  console.log({restaurant})
 
   const add = product => {
     let cartItems = [...items]
@@ -34,14 +37,29 @@ export const CartProvider = ({children}) => {
   const amount = product =>
     items.find(item => item.id === product.id)?.quantity || 0
 
-  const sum = () =>
-    items.reduce((sum, item) => (sum += item.price * item.quantity), 0)
+  const sum = () => {
+    const productsSum = items.reduce(
+      (sum, item) => (sum += item.price * item.quantity),
+      0
+    )
+    return productsSum + restaurant.shipping
+  }
 
   const clear = () => setItems([])
 
   return (
     <CartContext.Provider
-      value={{items, error, add, remove, sum, amount, clear}}
+      value={{
+        items,
+        error,
+        restaurant,
+        add,
+        remove,
+        sum,
+        amount,
+        clear,
+        setRestaurant,
+      }}
     >
       {children}
     </CartContext.Provider>

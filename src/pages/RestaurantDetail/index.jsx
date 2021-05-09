@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import * as api from 'services/api'
 import styles from './styles.module.scss'
@@ -7,14 +7,20 @@ import Category from 'components/CategoryTitle'
 import RestaurantCard from 'components/RestaurantCard'
 import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
+import {CartContext} from 'contexts/cart'
+
+const RestaurantDetail = props => {
 import { useContext } from 'react'
 import { ThemeContext } from 'contexts/theme'
 import {name} from 'constants/project'
+  
 const RestaurantDetail = props => {
-  const {id} = useParams()
+    const {id} = useParams()
   const [restaurant, setRestaurant] = useState({})
+  const cart = useContext(CartContext)
 
     const theme = useContext(ThemeContext)
+
 
   useEffect(() => {
     const getData = async () => {
@@ -28,8 +34,10 @@ const RestaurantDetail = props => {
     theme.setHeaderOptions({title: "Restaurante"})
   }, [id])
 
-  // sum category by array
-  // [0] category: 'name', products: []
+  useEffect(() => {
+    restaurant?.name && cart.setRestaurant(restaurant)
+  }, [cart, restaurant])
+
   const productsByCategory = products => {
     if (!products?.length) return
     console.log('products: ', products)
@@ -59,11 +67,11 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
-      {/* <Header title='Restaurante' showArrow /> */}
-      {/* <h1 className={styles.title}>{restaurant?.name}</h1>; */}
+
+      <Header title='Restaurante' showArrow />
+
       <RestaurantCard {...restaurant} />
       {productsByCategory(restaurant.products)}
-      {/* <BottomTabNav /> */}
     </div>
   )
 }
