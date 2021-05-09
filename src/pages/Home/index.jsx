@@ -50,7 +50,7 @@ const Home = () => {
         <div className={styles.order}>
           <p>Pedido em {order.restaurantName}</p>
           <p>no valor de {formatPrice(order.totalPrice)}</p>
-          <p>Cegara em minutos {calcTime(order)} min</p>
+          <p>Cegara em minutos {calcTime(order)} minutos</p>
         </div>
       )}
     </div>
