@@ -11,6 +11,8 @@ export const ThemeProvider = ({children}) => {
   const [headerOptions, setHeaderOptions] = useState({})
   const [screen, setScreen] = useState(getScreen())
 
+  console.log('screen', headerOptions)
+
   useEffect(() => {
     window.addEventListener('resize', () => {
       setScreen(getScreen())

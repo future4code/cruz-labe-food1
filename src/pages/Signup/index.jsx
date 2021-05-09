@@ -1,13 +1,22 @@
 import Button from 'components/Button'
-import Header from 'components/Header'
 import Input from 'components/Input'
+import { ThemeContext } from 'contexts/theme'
 import {useGo, useForm} from 'hooks'
+import { useEffect } from 'react'
+import { useContext } from 'react'
 import * as api from 'services/api'
 import styles from './styles.module.scss'
 
 const Signup = () => {
   const go = useGo()
   const {form, register} = useForm({name: ''})
+  const theme = useContext(ThemeContext)
+
+  useEffect(() => {
+    theme.setHeaderOptions({showLogo: true,
+                            title: 'Cadastrar',
+                            showArrow: true})
+  },[])
 
   const handleSignup = async e => {
     e.preventDefault()
@@ -19,7 +28,6 @@ const Signup = () => {
 
   return (
     <div className={styles.container}>
-      <Header title='Cadastrar' showLogo showArrow />
       <form className={styles.form} onSubmit={handleSignup}>
         <Input label='Nome*' {...register('name')} />
         <Input label='Email*' type='email' {...register('email')} />

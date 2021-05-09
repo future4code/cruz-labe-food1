@@ -2,26 +2,30 @@ import {CartContext} from 'contexts/cart'
 import {useContext} from 'react'
 import {useRequestData} from 'hooks'
 import * as api from 'services/api'
-import Header from 'components/Header'
 import BottomTabNav from 'components/BottomTabNav'
 import ItemCard from 'components/ItemCard'
 import UserAddress from 'components/UserAddress'
 import CategoryTitle from 'components/CategoryTitle'
 import styles from './styles.module.scss'
+import { ThemeContext } from 'contexts/theme'
+import { useEffect } from 'react'
 
 const Cart = () => {
   const cart = useContext(CartContext)
+  const theme = useContext(ThemeContext)
   const [user, isLoading] = useRequestData(
     api.getProfile,
     {},
     {selectProp: 'user'}
   )
 
-  console.log(cart)
+  useEffect(() => {
+    theme.setHeaderOptions({ title: "Carrinho"})
+  })
+
 
   return (
     <div className={styles.container}>
-      <Header title='Meu carrinho' showArrow />
       {isLoading ? (
         'Loading'
       ) : (
@@ -37,7 +41,7 @@ const Cart = () => {
       <h3> .... Aqui vem o Radius pagto</h3>
       <h3>Debito ou credito senhor?</h3>
 
-      <BottomTabNav />
+      {/* <BottomTabNav /> */}
     </div>
   )
 }

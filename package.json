@@ -34,7 +34,7 @@
           "**/*.stories.*"
         ],
         "rules": {
-          "import/no-anonymous-default-export": [2, {"allowObjet": true}]
+          "import/no-anonymous-default-export": [2, {"allowObject": true}]
         }
       },
       {
