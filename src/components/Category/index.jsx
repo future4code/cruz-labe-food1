@@ -5,7 +5,9 @@ const Category = ({categorys, register}) => {
     <div className={styles.container}>
       {categorys.length &&
         categorys?.map(category => (
-          <span {...register('category', 'onClick')}>{category}</span>
+          <span key={category} {...register('category', 'onClick')}>
+            {category}
+          </span>
         ))}
     </div>
   )

@@ -35,8 +35,8 @@ export const getFullAddress = async () => base({url: 'profile/address'})
 export const updateProfile = async data =>
   base({url: 'profile', method: 'put', data})
 
-export const placeOrder = async (data, id) =>
-  base({url: `restaurants/${id}/order`})
+export const placeOrder = async ({id, data}) =>
+  base({url: `restaurants/${id}/order`, method: 'post', data})
 
 export const getActiveOrder = async () => base({url: 'active-order'})
 
