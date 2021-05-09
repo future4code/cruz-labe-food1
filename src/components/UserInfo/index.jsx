@@ -1,6 +1,9 @@
-import styles from "./styles.module.scss";
+import {useGo} from 'hooks/useGo'
+import styles from './styles.module.scss'
 
-const UserInfo = (user) => {
+const UserInfo = user => {
+  const go = useGo()
+
   return (
     <div className={styles.container}>
       {user.name ? (
@@ -10,15 +13,16 @@ const UserInfo = (user) => {
           <p>{user.cpf}</p>
           <img
             className={styles.icon}
-            src="icons/edit.svg"
-            alt="Desenha de uma lápis para edição"
+            src='icons/edit.svg'
+            alt='Desenha de uma lápis para edição'
+            onClick={() => go.editInfo(user)}
           />
         </div>
       ) : (
-        "Loading..."
+        'Loading...'
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserInfo;
+export default UserInfo
