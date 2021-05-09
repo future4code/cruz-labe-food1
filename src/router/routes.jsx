@@ -3,7 +3,7 @@ import {
   Home,
   Login,
   Signup,
-  Adress,
+  Address,
   Cart,
   Profile,
   RestaurantDetail,
@@ -19,7 +19,7 @@ const Router = () => {
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
-          <Route exact path='/adress' component={Adress} />
+          <Route exact path='/address' component={Adress} />
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/restaurant/:id' component={RestaurantDetail} />

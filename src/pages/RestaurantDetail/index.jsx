@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
-import api from 'services/api'
+import * as api from 'services/api'
 import styles from './styles.module.scss'
 import ItemCard from 'components/ItemCard'
 import Category from 'components/CategoryTitle'
