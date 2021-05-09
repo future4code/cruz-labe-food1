@@ -1,0 +1,16 @@
+
+
+.form:focus, .input:focus  {
+    box-shadow: 0 0 0 0;
+    outline: none;
+    border: 0 none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    outline-style: none;
+}
+
+.input {
+    padding: 4px;
+    margin-left: 5px;
+}
+

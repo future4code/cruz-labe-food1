@@ -3,12 +3,16 @@ import GlobalState from 'contexts/global'
 import Router from 'router/routes'
 import './styles/global.scss'
 
-const App = () => (
-  <ErrorBoundary>
-    <GlobalState>
-      <Router />
-    </GlobalState>
-  </ErrorBoundary>
-)
+function App() {
+  return (
+    <ErrorBoundary>
+      <GlobalState>
+        {/* <Layout> */}
+          <Router />
+        {/* </Layout> */}
+      </GlobalState>
+    </ErrorBoundary>
+  );
+}
 
 export default App

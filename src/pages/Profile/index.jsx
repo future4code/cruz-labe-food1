@@ -27,7 +27,6 @@ const Profile = () => {
       <UserInfo {...user} />
       <UserAddress address={user.address} title='Endereço cadastrado' />
       <History />
-      <BottomTabNav />
     </div>
   )
 }
