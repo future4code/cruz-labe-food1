@@ -4,7 +4,7 @@ import {
   Home,
   Login,
   Signup,
-  Address,
+  Adress,
   Cart,
   Profile,
   RestaurantDetail,

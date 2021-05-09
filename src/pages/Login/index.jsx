@@ -34,7 +34,7 @@ const Login = () => {
           type='password'
           img='/icons/password.svg'
         />
-        <Button>Entrar</Button>
+        <Button label = "Entrar">Entrar</Button>
         <p className={styles.text}>
           Não possui cadastro? <NavLink to='/signup'>Clique aqui.</NavLink>
         </p>

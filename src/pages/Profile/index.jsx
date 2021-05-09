@@ -28,7 +28,6 @@ const Profile = () => {
         </>
       )}
       <History />
-      <BottomTabNav />
     </div>
   )
 }
