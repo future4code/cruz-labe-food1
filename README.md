@@ -8,7 +8,7 @@ Aplicativo de delivery de comida Rappi4, projeto final Front End :)
 * Marcos Maia
 
 ### Veja aovivo
-*[SURGE](http://rappi4.surge.sh/login)*
+*[rappi4.surge.sh](http://rappi4.surge.sh/)*
 
 ### Imagens
 ![Screenshot from 2021-05-10 16-03-02](https://user-images.githubusercontent.com/7757352/117711227-5646c500-b1a9-11eb-89de-848b8a96867e.png)
