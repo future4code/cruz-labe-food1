@@ -17,16 +17,41 @@
 
 .input {
   width: 100%;
-  height: 3rem;
+  height: min(3.5rem, 10vh);
   border-radius: 2px;
   border: solid 1px #b8b8b8;
   padding-left: 1rem;
-  color: var(--grey);
+  color: var(--text-primary);
+  font-size: 1rem;
 
   &::placeholder {
-    text-transform: capitalize;
-    color: var(--grey);
+    // text-transform: capitalize;
+    color: var(--text-secondary);
   }
+
+  &:focus {
+    // background: gold;
+    outline: 1px #333 solid;
+  }
+}
+
+.success {
+  border: 3px solid var(--success);
+  &:focus {
+    border: 3px solid var(--success);
+  }
+}
+
+.error {
+  border: 3px solid var(--error);
+  &:focus {
+    border: 3px solid var(--error);
+  }
+}
+
+.helper {
+  color: var(--warning);
+  font-size: 0.8rem;
 }
 
 .img {

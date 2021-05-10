@@ -6,7 +6,7 @@ export const getCategorys = products =>
     []
   )
 
-// get the array os categorys with products and convert to classified object
+// get the array of categorys with products and convert to classified object
 export const classifyProducts = (categorys, products) =>
   categorys.map(i => ({
     category: i,
@@ -15,7 +15,6 @@ export const classifyProducts = (categorys, products) =>
 
 // format value to: R$ 12,34
 export const formatPrice = price => {
-  console.log({price})
   if (!price) return formatPrice('0.00')
   return Number(price).toLocaleString('pt-BR', {
     style: 'currency',
@@ -35,7 +34,9 @@ export const getDate = dateString =>
 export const formatTime = time =>
   new Date(time).toLocaleTimeString('pt-BR', {timeStyle: 'short'})
 
-export const calcTime = ({createdAt, expiresAt}) => {
-  const time = new Date(expiresAt - createdAt)
-  return formatTime(time)
+export const calcTime = ({expiresAt}) => {
+  const expire = new Date(expiresAt)
+  const now = new Date()
+  const time = Math.round((expire - now) / 1000 / 60)
+  return time
 }

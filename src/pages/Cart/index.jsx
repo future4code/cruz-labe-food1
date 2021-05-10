@@ -59,12 +59,6 @@ const Cart = props => {
     }
   }
 
-  console.log({paymentMethod})
-
-  useEffect(() => {
-    theme.setHeaderOptions({title: 'Carrinho'})
-  })
-
   return (
     <div className={styles.container}>
       {isLoading ? (

@@ -1,18 +1,25 @@
 import styles from './styles.module.scss'
-import {useGo} from 'hooks/useGo'
+import {NavLink} from 'react-router-dom'
 
-const BottomTabNav = () => {
-  const go = useGo()
-
-  return (
-    <div className={styles.container}>
-      <div className={styles.flex}>
-        <button className={styles.home} onClick={go.home}></button>
-        <button className={styles.cart} onClick={go.cart}></button>
-        <button className={styles.avatar} onClick={go.profile}></button>
-      </div>
-    </div>
-  )
-}
+const BottomTabNav = () => (
+  <div className={styles.container}>
+    <NavLink
+      to='/'
+      exact
+      className={styles.home}
+      activeClassName={styles.activeHome}
+    />
+    <NavLink
+      to='/cart'
+      className={styles.cart}
+      activeClassName={styles.activeCart}
+    />
+    <NavLink
+      to='/profile'
+      className={styles.avatar}
+      activeClassName={styles.activeAvatar}
+    />
+  </div>
+)
 
 export default BottomTabNav
