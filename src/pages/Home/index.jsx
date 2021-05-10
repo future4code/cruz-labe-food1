@@ -1,20 +1,19 @@
 import styles from './styles.module.scss'
 import {name} from 'constants/project'
 import {useForm, useRequestData, useProtectedPage} from 'hooks'
-import SearchInput from 'components/SearchInput'
-import {useContext, useEffect} from 'react'
 import * as api from 'services/api'
+import {getCategorys} from 'utils/helpers'
+import SearchInput from 'components/SearchInput'
 import Restaurants from 'components/Restaurants'
 import Category from 'components/Category'
-import {ThemeContext} from 'contexts/theme'
-import {getCategorys} from 'utils/helpers'
-import {calcTime} from 'utils/helpers'
-import {formatPrice} from 'utils/helpers'
+import PurchaseProgress from 'components/PurchaseProgress'
+import {useState} from 'react'
+import SplashScreen from 'components/SplashScreen'
 
 const Home = () => {
   useProtectedPage()
-  const theme = useContext(ThemeContext)
-  const {form, register} = useForm({search: '', category: ''})
+  const [loadingLogo, setLoadingLogo] = useState(true)
+  const {form, setForm, register} = useForm({search: '', category: ''})
   const [restaurants, isLoading, isError] = useRequestData(
     api.getRestaurants,
     [],
@@ -26,17 +25,15 @@ const Home = () => {
     {selectProp: 'order'}
   )
 
-  // useEffect(() => theme.setHeaderOptions({title: name}), [])
-
   const categorys = getCategorys(restaurants)
-
   const search = r => !form.search || RegExp(form.search, 'i').test(r.name)
   const category = r => !form.category || r.category === form.category
   const list = restaurants.filter(search).filter(category)
+  const resetCategory = () => setForm({...form, category: ''})
 
-  console.table(form)
-
-  return (
+  return loadingLogo ? (
+    <SplashScreen {...{setLoadingLogo}} />
+  ) : (
     <div className={styles.container}>
       <SearchInput
         type={'search'}
@@ -44,15 +41,9 @@ const Home = () => {
         img='/icons/search.svg'
         {...register('search')}
       />
-      <Category {...{categorys, register}} />
+      <Category {...{categorys, register, resetCategory}} />
       <Restaurants {...{list, isLoading}} />
-      {!orderLoading && order?.totalPrice && (
-        <div className={styles.order}>
-          <p>Pedido em {order.restaurantName}</p>
-          <p>no valor de {formatPrice(order.totalPrice)}</p>
-          <p>Cegara em minutos {calcTime(order)} minutos</p>
-        </div>
-      )}
+      {!orderLoading && order?.totalPrice && <PurchaseProgress {...order} />}
     </div>
   )
 }

@@ -1,24 +1,24 @@
 import classNames from 'classnames'
 import {useGo} from 'hooks/useGo'
+import {useLocation, useParams, useRouteMatch} from 'react-router-dom'
 import styles from './styles.module.scss'
 
 const Header = ({title, showArrow, showLogo, bottom}) => {
   const go = useGo()
   const c = classNames
-  // go.home()
-  // go.back()
-  // go.login()
-  // onClick={go.home}
+
+  const titleContainer = c(styles.titleContainer, {
+    [styles.titleContainerBorder]: showArrow,
+  })
+
+  const headerSize = c(styles.container, {
+    [styles.sizeTitle]: !showLogo,
+    [styles.sizeLogo]: showLogo,
+  })
 
   return (
-    <header className={styles.container}>
-      <div
-        className={
-          showArrow
-            ? c(styles.titleContainer, styles.titleContainerBorder)
-            : styles.titleContainer
-        }
-      >
+    <header className={headerSize}>
+      <div className={titleContainer}>
         {showArrow && (
           <img
             className={styles.arrowBack}
@@ -27,7 +27,6 @@ const Header = ({title, showArrow, showLogo, bottom}) => {
             onClick={go.back}
           />
         )}
-
         {!showLogo && !bottom && (
           <h1 className={c(styles.title, styles.titleContainerBorder)}>
             {title}

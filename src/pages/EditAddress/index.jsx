@@ -21,7 +21,6 @@ const EditAddress = () => {
     isLoading,
     setForm,
   ])
-  console.log({address})
 
   const handleForm = async e => {
     e.preventDefault()

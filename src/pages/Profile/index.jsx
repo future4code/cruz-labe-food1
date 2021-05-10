@@ -6,8 +6,8 @@ import * as api from 'services/api'
 import UserInfo from 'components/UserInfo'
 import UserAddress from 'components/UserAddress'
 import History from 'components/History'
-import { useContext } from 'react'
-import { ThemeContext } from 'contexts/theme'
+import {useContext} from 'react'
+import {ThemeContext} from 'contexts/theme'
 import {useRequestData} from 'hooks/useRequest'
 
 const Profile = () => {
@@ -16,16 +16,10 @@ const Profile = () => {
     {},
     {selectProp: 'user'}
   )
-    const theme = useContext(ThemeContext)
-    
-    useEffect(() => {
-    theme.setHeaderOptions({title: "Meu perfil"})
-  }, [])
-    
+  const theme = useContext(ThemeContext)
 
   return (
     <div className={styles.container}>
-      <Header title='Meu perfil' showArrow />
       {isLoading ? (
         'Carregando...'
       ) : (

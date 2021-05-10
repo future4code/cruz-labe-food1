@@ -15,7 +15,6 @@ const RestaurantDetail = props => {
   const {id} = useParams()
   const [restaurant, setRestaurant] = useState({})
   const cart = useContext(CartContext)
-
   const theme = useContext(ThemeContext)
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const RestaurantDetail = props => {
       setRestaurant(r.restaurant)
     }
     getData()
-    theme.setHeaderOptions({title: 'Restaurante'})
   }, [id])
 
   useEffect(() => {
@@ -51,10 +49,10 @@ const RestaurantDetail = props => {
 
     return sum.map(item => (
       <div>
-        <Category title={item.category} />
+        <Category key={item.category} title={item.category} />
         <ul>
           {item.products.map(p => (
-            <ItemCard {...p} />
+            <ItemCard key={p.id} {...p} />
           ))}
         </ul>
       </div>
@@ -63,7 +61,7 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
-      <Header title='Restaurante' showArrow />
+      {/* <Header title='Restaurante' showArrow /> */}
 
       <RestaurantCard {...restaurant} />
       {productsByCategory(restaurant.products)}

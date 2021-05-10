@@ -1,13 +1,10 @@
 import styles from './styles.module.scss'
 import {CartContext} from 'contexts/cart'
 import {useContext} from 'react'
+import {formatPrice} from 'utils/helpers'
 
 const ItemCard = product => {
   const cart = useContext(CartContext)
-  // cart.items
-  // cart.add()
-  // cart.remove()
-  // cart.clear()
   const {description, name, photoUrl, price} = product
   return (
     <>
@@ -18,10 +15,7 @@ const ItemCard = product => {
           <div>
             <h4>{name}</h4>
             <p>{description}</p>
-            <p>
-              R$
-              {price.toFixed(2).replace('.', ',')}
-            </p>
+            <p> {formatPrice(price)} </p>
           </div>
 
           <div className={styles.buttons}>

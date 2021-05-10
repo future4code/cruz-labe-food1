@@ -16,7 +16,6 @@ const EditInfo = ({location: {state}}) => {
     {selectProp: 'user', wait: true}
   )
 
-  console.log({state})
   const handleForm = async e => {
     e.preventDefault()
     await request({form})

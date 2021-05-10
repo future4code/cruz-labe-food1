@@ -1,5 +1,14 @@
 .container {
   width: clamp(min(400px, 100%), 80%, 1280px);
   margin: auto;
+  // display: grid;
+  // grid: 80px 1fr 80px / 1fr;
+  height: 100vh;
+
+  @media (min-width: 600px) {
+    height: auto;
+    min-height: 100vh;
+  }
+
   // padding: 1rem;
 }
