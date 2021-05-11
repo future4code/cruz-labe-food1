@@ -28,7 +28,11 @@ const Header = ({title, showArrow, showLogo, bottom}) => {
           />
         )}
         {!showLogo && !bottom && (
-          <h1 className={c(styles.title, styles.titleContainerBorder)}>
+          <h1
+            className={c(styles.title, {
+              [styles.titleContainerBorder]: !showArrow,
+            })}
+          >
             {title}
           </h1>
         )}

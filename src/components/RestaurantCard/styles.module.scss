@@ -3,6 +3,19 @@
   border-radius: 8px;
 }
 
+.details {
+  border: none;
+  > div {
+    padding: 0;
+  }
+
+  img {
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    height: max(120px, 5vh);
+  }
+}
+
 .image {
   width: 100%;
   height: 200px;
@@ -21,17 +34,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  p {
+    color: var(--text-secondary);
+  }
 }
 
 .values {
   display: flex;
   justify-content: space-between;
-}
-
-.textLeft {
-  color: var(--text-secondary);
-}
-
-.textRight {
-  color: var(--text-secondary);
 }

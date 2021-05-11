@@ -17,7 +17,11 @@ const History = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        history.map(order => <HistoryCard key={order.createdAt} {...order} />)
+        <div className={styles.cardContainer}>
+          {history.map(order => (
+            <HistoryCard key={order.createdAt} {...order} />
+          ))}
+        </div>
       )}
 
       {!history.length && !isLoading && !isError && (
