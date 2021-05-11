@@ -2,9 +2,17 @@
 
 .container {
   @include container;
+  overflow: visible;
 }
 
 .title {
   font-size: 5rem;
   text-align: center;
+}
+
+.itemsContainer {
+  @include flex(column, 1rem);
+}
+.itemsList {
+  @include flex(column, 1rem);
 }

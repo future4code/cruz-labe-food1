@@ -1,5 +1,7 @@
-const Loading = ({ size, type }) => {
-  return "Loading...";
-};
+import styles from './styles.module.scss'
 
-export default Loading;
+const Loading = ({color, size, type}) => {
+  return <div className={styles.container}></div>
+}
+
+export default Loading

@@ -3,14 +3,4 @@
   // height: 100vh;
   padding: 0 1rem;
   overflow-x: hidden;
-  animation: aparece 2.5s both;
-}
-
-@keyframes aparece {
-  from {
-    clip-path: circle(0%);
-  }
-  to {
-    clip-path: circle(100%);
-  }
 }

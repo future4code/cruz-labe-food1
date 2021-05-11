@@ -53,12 +53,17 @@ export const useForm = initialValue => {
   const formatMask = name => {
     const mask = maskRef.current[name]
     for (let char of mask) {
+      console.log(mask[char])
     }
   }
 
   const control = e => {
     const {name, dataset, value, textContent} = e.target
     validateRef.current.lastChange = name || dataset.name
+    console.log(maskRef)
+    if (Object.values(maskRef.current).includes(name)) {
+      console.log(maskRef.current[name])
+    }
     setForm({...form, [dataset.name || name]: value || textContent})
   }
 
@@ -91,7 +96,13 @@ export const useForm = initialValue => {
     }
 
     if (mask) {
-      maskRef.current[name] = mask
+      maskRef.current[name] = {
+        mask,
+        el: false,
+      }
+      attrs.ref = el => {
+        maskRef.current[name].el = el
+      }
     }
 
     return attrs

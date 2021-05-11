@@ -1,0 +1,19 @@
+.container {
+  border: 8px solid #666;
+  border-top: 8px solid var(--white);
+  border-radius: 50%;
+  animation: rotate 1s ease-in-out both infinite;
+  width: 100px;
+  height: 100px;
+  place-self: start center;
+  margin: 1rem auto;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

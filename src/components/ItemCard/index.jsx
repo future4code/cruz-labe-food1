@@ -2,6 +2,8 @@ import styles from './styles.module.scss'
 import {CartContext} from 'contexts/cart'
 import {useContext} from 'react'
 import {formatPrice} from 'utils/helpers'
+import classNames from 'classnames'
+import Loading from 'components/Loading'
 
 const ItemCard = product => {
   const cart = useContext(CartContext)
@@ -10,22 +12,22 @@ const ItemCard = product => {
     <>
       {name ? (
         <div className={styles.container}>
-          <img src={photoUrl} alt={name} />
+          <img className={styles.image} src={photoUrl} alt={name} />
 
-          <div>
-            <h4>{name}</h4>
-            <p>{description}</p>
-            <p> {formatPrice(price)} </p>
-          </div>
+          <h3 className={styles.title}>{name}</h3>
+          <p className={styles.desc}>{description}</p>
+          <p className={styles.price}> {formatPrice(price)} </p>
 
-          <div className={styles.buttons}>
-            <button onClick={() => cart.remove(product)}>-</button>
-            <div>{cart.amount(product)}</div>
-            <button onClick={() => cart.add(product)}>+</button>
-          </div>
+          <span className={styles.minus} onClick={() => cart.remove(product)}>
+            -
+          </span>
+          <span className={styles.amount}>{cart.amount(product)}</span>
+          <span className={styles.plus} onClick={() => cart.add(product)}>
+            +
+          </span>
         </div>
       ) : (
-        <p>Loading</p>
+        <Loading />
       )}
     </>
   )

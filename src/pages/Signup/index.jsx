@@ -45,8 +45,9 @@ const Signup = () => {
     //   return setError({...error, confirmPassword: true})
     // }
     const data = excludeProp(form, 'passwordConfirm')
+    console.log({data})
     const user = await getData(data)
-    if (!isError && user.name) {
+    if (!isError && user?.name) {
       go.address()
     }
   }

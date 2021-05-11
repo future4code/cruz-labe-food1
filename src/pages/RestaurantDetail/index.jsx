@@ -48,13 +48,13 @@ const RestaurantDetail = props => {
     }))
 
     return sum.map(item => (
-      <div>
+      <div className={styles.itemsContainer}>
         <Category key={item.category} title={item.category} />
-        <ul>
+        <div className={styles.itemsList}>
           {item.products.map(p => (
             <ItemCard key={p.id} {...p} />
           ))}
-        </ul>
+        </div>
       </div>
     ))
   }
