@@ -1,0 +1,38 @@
+.container {
+  width: 90%;
+  height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--error);
+  color: var(--white);
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%);
+  animation: movein 1s ease-out both;
+}
+
+.moveout {
+  animation: moveout 1s 5s ease-in both;
+}
+
+@keyframes movein {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes moveout {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 200%;
+  }
+}

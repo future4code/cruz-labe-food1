@@ -7,9 +7,11 @@ export const useForm = initialValue => {
   const [error, setError] = useState(initialValue)
   const [success, setSuccess] = useState(initialValue)
   const validateRef = useRef({})
+  const maskRef = useRef({})
 
   useEffect(() => {
     const last = validateRef.current.lastChange
+    if (!last) return
     const lastValue = form[last]
     const prevValue = validateRef.current.prev
     if (last && lastValue !== prevValue && validateRef.current[last]) {
@@ -17,6 +19,42 @@ export const useForm = initialValue => {
       validate(last)
     }
   }, [form])
+
+  const verifyAll = () => {
+    let some
+    let errors = {...error}
+
+    // verify empty fields
+    for (let name in form) {
+      if (!form[name]) {
+        errors = {...errors, [name]: true}
+        some = true
+      }
+    }
+
+    // verify erros in all fields
+    for (let name in error) {
+      if (error[name]) some = true
+    }
+
+    setError({...errors})
+
+    return some
+  }
+
+  const verifyErrors = () => {
+    let some
+    for (let name in error) {
+      if (error[name]) some = true
+    }
+    return some
+  }
+
+  const formatMask = name => {
+    const mask = maskRef.current[name]
+    for (let char of mask) {
+    }
+  }
 
   const control = e => {
     const {name, dataset, value, textContent} = e.target
@@ -38,8 +76,7 @@ export const useForm = initialValue => {
   }
 
   const register = (name, options = '') => {
-    const {event = '', validate = ''} = options
-    // console.log('opt:', name, event, validate)
+    const {event = '', validate = '', mask = ''} = options
     const attrs = {
       [event ? 'title' : 'name']: name,
       [event ? 'data-name' : 'id']: name,
@@ -52,10 +89,24 @@ export const useForm = initialValue => {
       attrs.error = error[name]
       attrs.success = success[name]
     }
-    console.log({attrs})
+
+    if (mask) {
+      maskRef.current[name] = mask
+    }
 
     return attrs
   }
 
-  return {form, register, control, reset, setForm, error, success}
+  return {
+    form,
+    register,
+    control,
+    reset,
+    setForm,
+    error,
+    setError,
+    success,
+    verifyAll,
+    verifyErrors,
+  }
 }

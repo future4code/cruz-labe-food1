@@ -1,5 +1,6 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Layout from 'components/Layout'
+import Error from 'components/Error'
 import {
   Home,
   Login,
@@ -26,6 +27,7 @@ const Router = () => (
         <Route exact path='/restaurant/:id' component={RestaurantDetail} />
         <Route exact path='/editinfo' component={EditInfo} />
         <Route exact path='/editaddress' component={EditAddress} />
+        <Route exact path='/error' component={Error} />
         <Route path='*' component={NotFound} />
       </Switch>
     </Layout>

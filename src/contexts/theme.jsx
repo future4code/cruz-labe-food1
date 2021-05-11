@@ -10,12 +10,15 @@ const getScreen = () => ({
 export const ThemeProvider = ({children}) => {
   const [headerOptions, setHeaderOptions] = useState({})
   const [screen, setScreen] = useState(getScreen())
-
-  console.log('screen', headerOptions)
+  const watchResize = () => {
+    setScreen(getScreen())
+  }
 
   useEffect(() => {
-    window.addEventListener('resize', () => setScreen(getScreen()))
-    return () => window.removeEventListener('resize', () => {})
+    window.addEventListener('resize', watchResize)
+    return () => {
+      window.removeEventListener('resize', watchResize)
+    }
   }, [])
 
   return (

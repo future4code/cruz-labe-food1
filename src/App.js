@@ -7,12 +7,10 @@ function App() {
   return (
     <ErrorBoundary>
       <GlobalState>
-        {/* <Layout> */}
-          <Router />
-        {/* </Layout> */}
+        <Router />
       </GlobalState>
     </ErrorBoundary>
-  );
+  )
 }
 
 export default App

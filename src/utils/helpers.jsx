@@ -40,3 +40,10 @@ export const calcTime = ({expiresAt}) => {
   const time = Math.round((expire - now) / 1000 / 60)
   return time
 }
+
+export const excludeProp = (obj, prop) => {
+  const newObj = {...obj}
+  delete newObj[prop]
+  console.log({newObj})
+  return newObj
+}

@@ -4,6 +4,7 @@
   // display: grid;
   // grid: 80px 1fr 80px / 1fr;
   height: 100vh;
+  position: relative;
 
   @media (min-width: 600px) {
     height: auto;
