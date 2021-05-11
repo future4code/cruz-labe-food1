@@ -13,7 +13,7 @@ Aplicativo de delivery de comida Rappi4, projeto final Front End :)
 *[rappi4.surge.sh](http://rappi4.surge.sh/)*
 
 ### Imagens
-![Screenshot from 2021-05-11 14-20-54](https://user-images.githubusercontent.com/7757352/117860380-9cae2980-b266-11eb-8e08-fdd7e1f8c1bc.png)
+![Screenshot from 2021-05-11 15-14-11](https://user-images.githubusercontent.com/7757352/117864805-953d4f00-b26b-11eb-8035-360d8f4b1f26.png)
 ![Screenshot from 2021-05-10 16-03-02](https://user-images.githubusercontent.com/7757352/117711227-5646c500-b1a9-11eb-89de-848b8a96867e.png)
 ![Screenshot from 2021-05-11 15-10-58](https://user-images.githubusercontent.com/7757352/117864491-41326a80-b26b-11eb-9b8a-fd8ad07b03b3.png)
 
