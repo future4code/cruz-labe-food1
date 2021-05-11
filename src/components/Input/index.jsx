@@ -29,7 +29,7 @@ const Input = ({
         required={!optional}
         {...args}
       />
-      {warning && <span className={styles.warning}>{warning}</span>}
+      {warning && error && <span className={styles.helper}>{warning}</span>}
 
       {img && (
         <img

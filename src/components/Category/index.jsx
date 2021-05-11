@@ -40,7 +40,7 @@ const Category = ({categorys, register, resetCategory}) => {
       ref={categoryRef}
       onMouseDown={handleSwipe}
       onMouseUp={handleSwipe}
-      OnMouseMove={handleSwipe}
+      onMouseMove={handleSwipe}
       onTouchStart={handleSwipe}
       onTouchEnd={handleSwipe}
       onTouchMove={handleSwipe}

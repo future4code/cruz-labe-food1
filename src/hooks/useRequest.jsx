@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useState} from 'react'
+import {source} from 'services/api'
 
 // REQUEST DATA CUSTOM HOOK
 export const useRequestData = (service, initialValue, args) => {
@@ -11,13 +12,19 @@ export const useRequestData = (service, initialValue, args) => {
     console.log({options})
     try {
       const r = await service({...options})
+      console.log('RETORNO:', r)
 
       if (r?.message) return setIsError(r)
 
-      if (selectProp && r?.[selectProp]) setData(r[selectProp])
-      else setData(r)
+      if (selectProp) {
+        if (r?.[selectProp]) {
+          setData(r[selectProp])
+          return r[selectProp]
+        } else return setIsError({message: `Problemito no retorno...`})
+      } else setData(r)
+      return r
     } catch (e) {
-      console.error(e)
+      console.error({e})
       setIsError(e)
     }
     setIsLoading(false)
@@ -25,6 +32,7 @@ export const useRequestData = (service, initialValue, args) => {
 
   useEffect(() => {
     !wait && getData()
+    // return () => source.cancel('canceled by ADM')
   }, [wait, getData])
 
   return [data, isLoading, isError, getData, setIsError]

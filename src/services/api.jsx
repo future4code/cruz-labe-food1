@@ -4,17 +4,27 @@ import interceptor from 'utils/interceptor'
 
 const api = axios.create({baseURL})
 interceptor(api)
+export const source = axios.CancelToken.source()
 
 const base = async args => {
-  console.log('args recebidos', args)
   const token = localStorage.getItem('token')
   try {
-    const r = await api({...args, headers: {auth: token}})
+    const r = await api({
+      ...args,
+      headers: {auth: token},
+      cancelToken: source.token,
+    })
+
     r.data.token && localStorage.setItem('token', r.data.token)
     return r.data
   } catch (e) {
-    // usar errorBoundary para mostrar erros em production
-    console.error('error', e)
+    if (axios.isCancel(e)) {
+      console.warn('request canceled', e.message)
+    } else {
+      // usar errorBoundary para mostrar erros em production
+      console.error({e})
+      return e.response?.data
+    }
   }
 }
 

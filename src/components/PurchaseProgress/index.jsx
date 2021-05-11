@@ -2,8 +2,6 @@ import {formatTime, formatPrice} from 'utils/helpers'
 import styles from './styles.module.scss'
 
 const PurchaseProgress = order => {
-  console.log('ORDER', order)
-  console.log(order.totalPrice)
   return (
     <div className={styles.container}>
       <img

@@ -18,7 +18,7 @@
 .input {
   width: 100%;
   height: min(3.5rem, 10vh);
-  border-radius: 2px;
+  border-radius: 4px;
   border: solid 1px #b8b8b8;
   padding-left: 1rem;
   color: var(--text-primary);
@@ -52,6 +52,10 @@
 .helper {
   color: var(--warning);
   font-size: 0.8rem;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 .img {

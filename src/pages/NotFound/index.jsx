@@ -1,13 +1,19 @@
 import styles from './styles.module.scss'
-import Header from 'components/Header'
-import BottomTabNav from 'components/BottomTabNav'
+import notFound from 'assets/images/not-found.png'
 
 const NotFound = () => {
   return (
-    <div>
-      <h1 className={styles.title}>
-        Não achei o que você queria, tente outra coisa amiguin
-      </h1>
+    <div className={styles.container}>
+      <span className={styles.error}>404</span>
+      <img
+        className={styles.image}
+        src={notFound}
+        alt='Imagem do ultimo pedaço de bolo no prato'
+      />
+      <h3 className={styles.title}>
+        <strong>Não achei</strong> o que você queria,
+        <strong>tente outra coisa</strong> amiguin
+      </h3>
     </div>
   )
 }

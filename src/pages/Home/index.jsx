@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import {name} from 'constants/project'
-import {useForm, useRequestData, useProtectedPage} from 'hooks'
+import {useForm, useRequestData} from 'hooks'
 import * as api from 'services/api'
 import {getCategorys} from 'utils/helpers'
 import SearchInput from 'components/SearchInput'
@@ -11,7 +11,6 @@ import {useState} from 'react'
 import SplashScreen from 'components/SplashScreen'
 
 const Home = () => {
-  useProtectedPage()
   const [loadingLogo, setLoadingLogo] = useState(true)
   const {form, setForm, register} = useForm({search: '', category: ''})
   const [restaurants, isLoading, isError] = useRequestData(
