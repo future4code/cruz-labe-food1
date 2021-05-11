@@ -1,5 +1,4 @@
 import styles from './styles.module.scss'
-import {name} from 'constants/project'
 import {useForm, useRequestData} from 'hooks'
 import * as api from 'services/api'
 import {getCategorys} from 'utils/helpers'
@@ -7,11 +6,8 @@ import SearchInput from 'components/SearchInput'
 import Restaurants from 'components/Restaurants'
 import Category from 'components/Category'
 import PurchaseProgress from 'components/PurchaseProgress'
-import {useState} from 'react'
-import SplashScreen from 'components/SplashScreen'
 
 const Home = () => {
-  const [loadingLogo, setLoadingLogo] = useState(true)
   const {form, setForm, register} = useForm({search: '', category: ''})
   const [restaurants, isLoading, isError] = useRequestData(
     api.getRestaurants,
@@ -30,9 +26,7 @@ const Home = () => {
   const list = restaurants.filter(search).filter(category)
   const resetCategory = () => setForm({...form, category: ''})
 
-  return loadingLogo ? (
-    <SplashScreen {...{setLoadingLogo}} />
-  ) : (
+  return (
     <div className={styles.container}>
       <SearchInput
         type={'search'}

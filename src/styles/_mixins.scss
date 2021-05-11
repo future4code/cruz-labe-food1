@@ -5,11 +5,17 @@
   overflow: auto;
 }
 
-@mixin flex($direction) {
+@mixin flex($direction, $gap) {
   display: flex;
-  flex-flow: $direction wrap;
-  justify-content: space-evenly;
+  flex-flow: $direction;
+  justify-content: center;
   align-items: center;
+  gap: $gap;
+}
+
+@mixin gridCenter {
+  display: grid;
+  place-items: center;
 }
 
 // @use 'mixins'

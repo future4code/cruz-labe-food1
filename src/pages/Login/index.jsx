@@ -9,6 +9,10 @@ import {useRequestData} from 'hooks/useRequest'
 import Alert from 'components/Alert'
 import {Transition, CSSTransition} from 'react-transition-group'
 import {useEffect} from 'react'
+import {useContext} from 'react'
+import {AuthContext} from 'contexts/auth'
+import SplashScreen from 'components/SplashScreen'
+import Loading from 'components/Loading'
 
 const initialForm = {
   email: '',
@@ -29,13 +33,15 @@ const Login = () => {
       wait: true,
     }
   )
+  const auth = useContext(AuthContext)
+  console.log({isLoading})
 
   const handleSubmit = async e => {
     e.preventDefault()
     if (verifyAll() || isError) return
     // if (error.email || error.password) return
     const user = await getData(form)
-    if (!isError && user.name) {
+    if (!isError && user?.name) {
       user.hasAddress ? go.home() : go.address()
     }
   }
@@ -88,6 +94,12 @@ const Login = () => {
           Não possui cadastro? <NavLink to='/signup'>Clique aqui.</NavLink>
         </p>
       </form>
+      {isLoading && (
+        <div className={styles.loadingContainer}>
+          <Loading />
+          <p>Carregando...</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -9,10 +9,10 @@ export const useRequestData = (service, initialValue, args) => {
   const [isError, setIsError] = useState(false)
 
   const getData = useCallback(async options => {
-    console.log({options})
+    if (!isLoading) setIsLoading(true)
     try {
       const r = await service({...options})
-      console.log('RETORNO:', r)
+      setIsLoading(false)
 
       if (r?.message) return setIsError(r)
 

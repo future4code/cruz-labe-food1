@@ -25,3 +25,19 @@
     }
   }
 }
+
+.loadingContainer {
+  p {
+    text-align: center;
+    animation: move 0.5s ease-in-out alternate both infinite;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate(-20%, 0);
+  }
+  to {
+    transform: translate(20%, 0);
+  }
+}

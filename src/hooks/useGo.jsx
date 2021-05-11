@@ -2,9 +2,10 @@ import {useHistory} from 'react-router-dom'
 
 export const useGo = () => {
   const history = useHistory()
+  const state = history?.location?.state
 
   const home = () => history.push('/')
-  const login = () => history.push('/login')
+  const login = state => history.push({pathname: '/login', state})
   const signup = () => history.push('/signup')
   const address = () => history.push('address')
   const profile = () => history.push('/profile')
@@ -25,5 +26,6 @@ export const useGo = () => {
     restaurant,
     cart,
     back,
+    state,
   }
 }

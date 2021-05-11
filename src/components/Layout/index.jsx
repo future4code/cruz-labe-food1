@@ -3,20 +3,21 @@ import BottomTabNav from 'components/BottomTabNav'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import {ThemeContext} from 'contexts/theme'
-import {useContext} from 'react'
-import {useLocation} from 'react-router-dom'
+import {useContext, useState} from 'react'
+import {useHistory, useLocation, useRouteMatch} from 'react-router-dom'
 import styles from './styles.module.scss'
 import {name} from 'constants/project'
+import SplashScreen from 'components/SplashScreen'
 
 const Layout = ({children}) => {
   useProtectedPage()
   const theme = useContext(ThemeContext)
-  const {pathname} = useLocation()
+  const {pathname, state} = useLocation()
+  const {action} = useHistory()
   const page = pathname.replace(/\/|\d+/g, '')
   const [showLogo, showArrow, showBottom] = [true, true, true]
   const home = {title: name, showBottom}
-
-  console.log('CHEGOU AQUI!')
+  const [loading, setLoading] = useState(true)
 
   const settings = {
     login: {title: 'Entrar', showLogo},
@@ -32,7 +33,9 @@ const Layout = ({children}) => {
   }
   const options = page ? settings[page] || settings.notfound : home
 
-  return (
+  return loading ? (
+    <SplashScreen {...{setLoading}} />
+  ) : (
     <div className={styles.container}>
       {page !== 'error' && <Header {...options} />}
       {children}
