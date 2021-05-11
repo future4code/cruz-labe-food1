@@ -3,6 +3,7 @@
 .container {
   @include container;
   overflow: visible;
+  padding: 0 1rem;
 }
 
 .title {

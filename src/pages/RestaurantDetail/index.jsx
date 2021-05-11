@@ -63,7 +63,7 @@ const RestaurantDetail = props => {
     <div className={styles.container}>
       {/* <Header title='Restaurante' showArrow /> */}
 
-      <RestaurantCard {...restaurant} />
+      <RestaurantCard {...restaurant} showDetail />
       {productsByCategory(restaurant.products)}
     </div>
   )

@@ -1,7 +1,13 @@
+@use 'mixins' as *;
+
 .container {
-  border: 1px solid var(--background-secondary);
+  border: 1px solid var(--text-secondary);
   border-radius: 8px;
   padding: 1rem;
+  width: 100%;
+  @include flex(column, 0.5rem);
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .title {
@@ -10,9 +16,12 @@
 
 .date {
   font-size: 0.75rem;
+  line-height: 2;
 }
 
 .value {
   text-transform: uppercase;
+  font-weight: bold;
   color: var(--text-primary);
+  // margin-top: auto;
 }

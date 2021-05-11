@@ -2,7 +2,6 @@ import {formatDate, getDate, formatPrice} from 'utils/helpers'
 import styles from './styles.module.scss'
 
 const HistoryCard = ({totalPrice, restaurantName, createdAt, expiresAt}) => {
-  console.log('HISTORY', createdAt)
   return (
     restaurantName && (
       <div className={styles.container}>
