@@ -25,8 +25,6 @@ export const CartProvider = ({children}) => {
         `Existe pedido em andamento do restaurante ${restaurant.current.id}`
       )
     }
-    console.log('restaurant:', selectedRest.name)
-    console.log('current:', restaurant.current.name)
 
     let cartItems = [...items]
     const index = cartItems.findIndex(item => item.id === product.id)
@@ -34,8 +32,6 @@ export const CartProvider = ({children}) => {
     if (index >= 0) cartItems[index].quantity += 1
     else cartItems = [...cartItems, {...product, quantity: 1}]
 
-    console.log({cartItems})
-    console.log('current', restaurant.current)
     setItems(cartItems)
     localStorage.setItem('cart', JSON.stringify(cartItems))
     localStorage.setItem('rest', JSON.stringify(restaurant.current))
@@ -73,7 +69,12 @@ export const CartProvider = ({children}) => {
     return productsSum + restaurant.current.shipping
   }
 
-  const clear = () => setItems([])
+  const clear = () => {
+    setItems([])
+    restaurant.current = false
+    localStorage.removeItem('cart')
+    localStorage.removeItem('rest')
+  }
 
   return (
     <CartContext.Provider

@@ -19,6 +19,7 @@ import {formatPrice} from 'utils/helpers'
 import {useGo} from 'hooks/useGo'
 import Loading from 'components/Loading'
 import Alert from 'components/Alert'
+import RadioGroup from 'components/RadioGroup'
 
 // const
 
@@ -69,7 +70,10 @@ const Cart = props => {
       go.home()
     }
   }
-  console.log('SOMA', cart.sum())
+  const paymentOptions = [
+    {label: 'Money', value: 'money'},
+    {label: 'Cartão de crédito', value: 'creditcard'},
+  ]
 
   return (
     <div className={styles.container}>
@@ -95,9 +99,10 @@ const Cart = props => {
           <p>{formatPrice(cart.sum())}</p>
         </div>
         <CategoryTitle title='Forma de pagamento' />
-        <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton>
+        {/* <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton> */}
+        <RadioGroup change={setPaymentMethod} options={paymentOptions} />
         <Button
-          label='Comprar'
+          label='Confirmar'
           action={purchase}
           disabled={!cart.items.length}
         />

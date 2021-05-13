@@ -5,12 +5,17 @@
   overflow: visible;
 }
 
-@mixin flex($direction, $gap) {
+@mixin flex($direction, $gap, $justify: null, $align: null, $color: null) {
   display: flex;
   flex-flow: $direction;
-  justify-content: center;
-  align-items: center;
+  @if jusfity {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
   gap: $gap;
+  background-color: $color;
 }
 
 @mixin gridCenter {
