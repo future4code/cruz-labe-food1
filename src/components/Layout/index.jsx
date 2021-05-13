@@ -27,8 +27,8 @@ const Layout = ({children}) => {
     restaurant: {title: 'Restaurante', showArrow},
     cart: {title: 'Meu carrinho', showBottom},
     profile: {title: 'Meu Perfil', showBottom},
-    editinfo: {title: 'Editar'},
-    editaddress: {title: 'Endereço'},
+    editinfo: {title: 'Editar', showArrow},
+    editaddress: {title: 'Endereço', showArrow},
     notfound: {title: 'Vish...', showLogo},
   }
   const options = page ? settings[page] || settings.notfound : home

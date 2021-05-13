@@ -1,12 +1,16 @@
 .container {
-  border: 8px solid #666;
-  border-top: 8px solid var(--white);
+  border: 2px solid #666;
+  border-top-color: var(--white);
   border-radius: 50%;
   animation: rotate 1s ease-in-out both infinite;
-  width: 100px;
-  height: 100px;
+  height: min(80%, 100px);
+  aspect-ratio: 1 / 1;
   place-self: start center;
-  margin: 1rem auto;
+  margin: auto;
+}
+
+.thickBorder {
+  border-width: 8px;
 }
 
 @keyframes rotate {

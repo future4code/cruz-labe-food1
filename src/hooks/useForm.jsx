@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 export const useForm = initialValue => {
   const [form, setForm] = useState(initialValue)
-  const [error, setError] = useState(initialValue)
+  const [error, setError] = useState({})
   const [success, setSuccess] = useState(initialValue)
   const validateRef = useRef({})
   const maskRef = useRef({})
@@ -108,6 +108,14 @@ export const useForm = initialValue => {
     return attrs
   }
 
+  const changed = () => {
+    let some
+    for (let name in form) {
+      if (form[name] !== initialValue[name]) some = true
+    }
+    return some
+  }
+
   return {
     form,
     register,
@@ -119,5 +127,6 @@ export const useForm = initialValue => {
     success,
     verifyAll,
     verifyErrors,
+    changed,
   }
 }

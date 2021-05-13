@@ -1,15 +1,16 @@
 import styles from './styles.module.scss'
 
-const RadioGroup = ({value, change, options}) => (
+const RadioGroup = ({name, value, change, options}) => (
   <div className={styles.container}>
     {options.map(option => (
       <div className={styles.radioItem}>
         <input
           type='radio'
-          name={option.value}
+          name={name}
+          id={option.value}
           value={option.value}
-          onChange={e => change(e.target.value)}
-          checked={option?.checked}
+          onChange={() => change(option.value)}
+          // checked={value === option.value}
         />
         <label for={option.value}>{option.label}</label>
       </div>

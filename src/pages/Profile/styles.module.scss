@@ -1,8 +1,8 @@
 @use 'mixins' as *;
 
 .container {
-  @include container;
-  padding: 0;
+  @include container(true);
+  padding-top: 1rem;
 }
 .title {
   font-size: 5rem;

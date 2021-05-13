@@ -64,14 +64,14 @@ const Cart = props => {
     console.log('items:', products)
     const id = cart.restaurant.current.id
 
-    await finishOrder({id, data: {products, paymentMethod}})
-    if (!errorOrder && order?.totalPrice) {
+    const r = await finishOrder({id, data: {products, paymentMethod}})
+    if (!errorOrder && r?.totalPrice) {
       cart.clear()
-      go.home()
+      setTimeout(go.home, 3000)
     }
   }
   const paymentOptions = [
-    {label: 'Money', value: 'money'},
+    {label: 'Dinheiro', value: 'money'},
     {label: 'Cartão de crédito', value: 'creditcard'},
   ]
 
@@ -100,15 +100,23 @@ const Cart = props => {
         </div>
         <CategoryTitle title='Forma de pagamento' />
         {/* <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton> */}
-        <RadioGroup change={setPaymentMethod} options={paymentOptions} />
+        <RadioGroup
+          name='paymentMethod'
+          value={paymentMethod}
+          change={setPaymentMethod}
+          options={paymentOptions}
+        />
         <Button
           label='Confirmar'
           action={purchase}
           disabled={!cart.items.length}
+          loading={loadingOrder}
         />
       </div>
-      {loadingOrder && 'Finalizando pedido...'}
       {errorOrder && <Alert {...errorOrder} setIsError={setErrorOrder} />}
+      {order?.totalPrice && (
+        <Alert success message='Solicitação cadastrada, Só aguardar!' />
+      )}
     </div>
   )
 }
