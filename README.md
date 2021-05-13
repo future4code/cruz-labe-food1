@@ -81,6 +81,18 @@ yarn && yarn start
 yarn storybook
 `
 
+## Implementações a serem feitas:
+* Barras de progresso para loading de rotas
+* Efeitos de loading em retangulos estilo youtube e netflix para box e textos
+* Usar typescript para melhor controle
+* Converter app para NextJS para ter dados estáticos
+* Mudar home para listar restaurantes e pratos indicados mesmo sem login
+* Terminar desktop layout
+* Contruir versão mobile com React Native
+* Implementar opções dos itens para customização estilo Ifood
+* Criar nova API mais completa e com mais dados
+
+
 
 ### Imagens
 ![Screenshot from 2021-05-11 15-14-11](https://user-images.githubusercontent.com/7757352/117864805-953d4f00-b26b-11eb-8035-360d8f4b1f26.png)
@@ -96,16 +108,20 @@ yarn storybook
 
 ### Fluxograma
 usamos o whimsical para elaborar o fluxograma de componentes do nosso app, ótima ferramenta, muito intuitiva para elaboração desses tipos de gŕaficos e fluxos.
-https://whimsical.com/rappi4-SxyhiPA5g1Gr4ssthbCkxT
+
+[Components Fluxogram](https://whimsical.com/rappi4-SxyhiPA5g1Gr4ssthbCkxT)
 
 ### API
 Utilizamos a API feita em nodejs pelo tipo de instrutores do backend da Labenu, está documentado no postman docs
-https://documenter.getpostman.com/view/7549981/SWTEdGtT#3203689e-ea05-466a-8a5a-8ebc6c5f271e
+
+[API Documentation](https://documenter.getpostman.com/view/7549981/SWTEdGtT#3203689e-ea05-466a-8a5a-8ebc6c5f271e)
 
 ### DESIGN
 Recebemos o design prototype pronto da designer Camila Mizutani, elaborado no zeplin 
-https://app.zeplin.io/project/5dd5ae92669af1bc817c8359
+
+[Design prototype](https://app.zeplin.io/project/5dd5ae92669af1bc817c8359)
 
 ### NOTION
 Instruções da equipe gestora do curso para elaboração do projetinho
-https://www.notion.so/WFS13-Projeto-Final-do-Frontend-20ac39457b9344aab3863527a0032196
+
+[Instruction da chefia](https://www.notion.so/WFS13-Projeto-Final-do-Frontend-20ac39457b9344aab3863527a0032196)
