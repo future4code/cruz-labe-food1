@@ -1,8 +1,11 @@
 import cx from 'classnames'
+import Loading from 'components/Loading'
 import styles from './styles.module.scss'
 
-const Button = ({action, label, children, disabled, ...args}) => {
-  const buttonClass = cx(styles.button, {[styles.disabled]: disabled})
+const Button = ({action, label, children, disabled, loading, ...args}) => {
+  const buttonClass = cx(styles.button, {
+    [styles.disabled]: disabled,
+  })
 
   return (
     <button
@@ -10,7 +13,7 @@ const Button = ({action, label, children, disabled, ...args}) => {
       {...{...args, disabled}}
       onClick={!disabled ? action : undefined}
     >
-      {label || children}
+      {loading ? <Loading /> : label || children}
     </button>
   )
 }

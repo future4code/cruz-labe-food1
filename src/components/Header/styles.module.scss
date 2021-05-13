@@ -1,12 +1,10 @@
+@use 'mixins' as *;
+
 .container {
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex(column, 0);
   width: 100%;
   height: auto;
-  align-items: center;
   padding: 0 1rem;
-  // position: sticky;
-  // z-index: 1;
 
   .logo {
     width: 40%;
@@ -15,7 +13,7 @@
 }
 
 .sizeTitle {
-  height: max(80px, 10vh);
+  height: max(50px, 5vh);
 }
 
 .sizeLogo {
@@ -34,7 +32,6 @@
   flex-basis: max(50px, 5vh);
   line-height: 4rem;
   align-items: center;
-  // padding: 0 1rem 0 1rem;
 }
 
 .titleContainerBorder {

@@ -1,16 +1,27 @@
-@mixin container {
+@mixin container($nopadding: false) {
   width: 100%;
   height: 100vh;
-  padding: 1rem;
   overflow: visible;
+  @if $nopadding == false {
+    padding: 1rem;
+  }
 }
 
-@mixin flex($direction, $gap) {
+@mixin flex($direction, $gap, $justify: null, $align: null, $color: null) {
   display: flex;
   flex-flow: $direction;
-  justify-content: center;
-  align-items: center;
+  @if jusfity {
+    justify-content: $justify;
+  } @else {
+    justify-content: center;
+  }
+  @if $align {
+    align-items: $align;
+  } @else {
+    align-items: center;
+  }
   gap: $gap;
+  background-color: $color;
 }
 
 @mixin gridCenter {

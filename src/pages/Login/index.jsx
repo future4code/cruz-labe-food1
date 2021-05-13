@@ -87,6 +87,7 @@ const Login = () => {
           type='button'
           action={handleSubmit}
           disabled={error.email || error.password}
+          loading={isLoading}
         >
           Entrar
         </Button>
@@ -94,12 +95,12 @@ const Login = () => {
           Não possui cadastro? <NavLink to='/signup'>Clique aqui.</NavLink>
         </p>
       </form>
-      {isLoading && (
+      {/* {isLoading && (
         <div className={styles.loadingContainer}>
           <Loading />
           <p>Carregando...</p>
         </div>
-      )}
+      )} */}
     </div>
   )
 }

@@ -9,6 +9,7 @@ import {useContext} from 'react'
 import {ThemeContext} from 'contexts/theme'
 import {useEffect} from 'react'
 import {useRequestData} from 'hooks/useRequest'
+import Alert from 'components/Alert'
 
 const initialForm = {
   street: '',
@@ -23,7 +24,7 @@ const Address = () => {
   const {form, register, error, setError, verifyAll, verifyErrors} = useForm(
     initialForm
   )
-  const [data, isLoading, isError, getData] = useRequestData(
+  const [data, isLoading, isError, getData, setIsError] = useRequestData(
     api.address,
     {},
     {
@@ -36,9 +37,7 @@ const Address = () => {
     e.preventDefault()
     if (verifyAll()) return
     const user = await getData(form)
-    console.log({user})
-
-    if (!isError && user?.name) go.home()
+    if (!isError && user?.hasAddress) setTimeout(go.home, 3000)
   }
 
   return (
@@ -90,8 +89,14 @@ const Address = () => {
           label='Salvar'
           type='button'
           action={handleAddress}
+          loading={isLoading}
           disabled={verifyErrors()}
         />
+
+        {data?.hasAddress && (
+          <Alert success message='Endereço adicionado com sucesso!' />
+        )}
+        {isError && <Alert {...{...isError, setIsError}} />}
       </form>
       {/* <BottomTabNav /> */}
     </div>

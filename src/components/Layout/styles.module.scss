@@ -10,6 +10,8 @@
     height: auto;
     min-height: 100vh;
   }
+  display: flex;
+  flex-flow: column;
 
   // padding: 1rem;
 }

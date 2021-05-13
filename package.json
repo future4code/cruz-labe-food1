@@ -34,23 +34,18 @@
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "**/stories.*"
         ],
         "rules": {
           "import/no-anonymous-default-export": [
             2,
             {
-              "allowObject": true
+              "allowObject": true,
+              "allowLiteral": true,
+              "allowAnonymousFunction": true,
+              "allowArrowFunction": true
             }
           ]
-        }
-      },
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
         }
       }
     ]

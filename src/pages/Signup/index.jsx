@@ -41,14 +41,11 @@ const Signup = () => {
   const handleSignup = async e => {
     e.preventDefault()
     if (verifyAll() || isError) return
-    // if (form.password !== form.confirmPassword) {
-    //   return setError({...error, confirmPassword: true})
-    // }
     const data = excludeProp(form, 'passwordConfirm')
     console.log({data})
     const user = await getData(data)
     if (!isError && user?.name) {
-      go.address()
+      setTimeout(go.address, 3000)
     }
   }
 
@@ -61,6 +58,14 @@ const Signup = () => {
         unmountOnExit
       >
         <Alert {...{...isError, setIsError}} />
+      </CSSTransition>
+      <CSSTransition
+        in={Boolean(data?.name)}
+        timeout={300}
+        mountOnEnter
+        unmountOnExit
+      >
+        <Alert success message='Conta cadastrada, informe seu endereço' />
       </CSSTransition>
       <form className={styles.form} onSubmit={handleSignup}>
         <Input
@@ -108,6 +113,7 @@ const Signup = () => {
           label='Criar'
           action={handleSignup}
           disabled={verifyErrors()}
+          loading={isLoading}
         />
       </form>
     </div>
