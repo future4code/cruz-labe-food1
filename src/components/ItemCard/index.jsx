@@ -7,7 +7,7 @@ import Loading from 'components/Loading'
 
 const ItemCard = product => {
   const cart = useContext(CartContext)
-  const {description, name, photoUrl, price} = product
+  const {description, name, photoUrl, price, restaurant} = product
   return (
     <>
       {name ? (
@@ -22,7 +22,10 @@ const ItemCard = product => {
             -
           </span>
           <span className={styles.amount}>{cart.amount(product)}</span>
-          <span className={styles.plus} onClick={() => cart.add(product)}>
+          <span
+            className={styles.plus}
+            onClick={() => cart.add(product, restaurant)}
+          >
             +
           </span>
         </div>

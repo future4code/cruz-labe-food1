@@ -1,27 +1,16 @@
 import {useGo} from 'hooks'
 import styles from './styles.module.scss'
 
-const AddressRestaurant = ({id, name, logoUrl, deliveryTime, shipping}) => {
+const AddressRestaurant = ({id, name, address, deliveryTime}) => {
   const go = useGo()
-  console.log(name)
 
   return (
     <div className={styles.container} onClick={() => go.restaurant(id)}>
-      {name ? (
-        <>
-          <div className={styles.infoContainer}>
-            <h3 className={styles.title}>{name}</h3>
-            <div className={styles.values}>
-              <p className={styles.textLeft}>{name}</p>
-              <p className={styles.textLeft}>
-                {`${deliveryTime - 10} - ${deliveryTime} min`}
-              </p>
-            </div>
-          </div>
-        </>
-      ) : (
-        'Loading...2'
-      )}
+      <h3 className={styles.title}>{name}</h3>
+      <p className={styles.address}>{address}</p>
+      <p className={styles.time}>
+        {`${deliveryTime - 10} - ${deliveryTime} min`}
+      </p>
     </div>
   )
 
