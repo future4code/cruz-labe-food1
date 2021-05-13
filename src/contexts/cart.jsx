@@ -21,9 +21,7 @@ export const CartProvider = ({children}) => {
   const add = (product, selectedRest) => {
     if (!restaurant.current) restaurant.current = {...selectedRest}
     if (selectedRest.id !== restaurant.current.id) {
-      return setError(
-        `Existe pedido em andamento do restaurante ${restaurant.current.id}`
-      )
+      return setError(`Existe pedido ativo do ${restaurant.current.name}`)
     }
 
     let cartItems = [...items]
@@ -81,6 +79,7 @@ export const CartProvider = ({children}) => {
       value={{
         items,
         error,
+        setError,
         restaurant,
         add,
         remove,
