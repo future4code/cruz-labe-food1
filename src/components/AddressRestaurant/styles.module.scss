@@ -1,37 +1,21 @@
+@use 'mixins' as *;
+
 .container {
-    border: 1px solid var(--text-secondary);
-    border-radius: 8px;
-  }
-  
-  .image {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .title {
-    color: var(--primary);
-    font-size: 1rem;
-    text-align: left;
-  }
-  
-  .infoContainer {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .values {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .textLeft {
-    color: var(--text-secondary);
-  }
-  
-  .textRight {
-    color: var(--text-secondary);
-  }
-  
+  @include flex(column, 0.5rem);
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.address {
+  color: var(--text-secondary);
+}
+
+.time {
+  color: var(--text-secondary);
+}

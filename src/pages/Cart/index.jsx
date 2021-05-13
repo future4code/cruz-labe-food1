@@ -17,11 +17,14 @@ import Category from 'components/CategoryTitle'
 import RestaurantCard from 'components/RestaurantCard'
 import {formatPrice} from 'utils/helpers'
 import {useGo} from 'hooks/useGo'
+import Loading from 'components/Loading'
+import Alert from 'components/Alert'
 
 // const
 
 const Cart = props => {
   const cart = useContext(CartContext)
+  console.log({cart})
   const theme = useContext(ThemeContext)
 
   const [user, isLoading, isError] = useRequestData(
@@ -46,38 +49,61 @@ const Cart = props => {
       return
     }
 
+    if (!cart.items.length) {
+      setErrorOrder({message: 'Nenhum item no carrinho'})
+      return
+    }
+
+    if (!cart.restaurant.current) {
+      setErrorOrder({message: 'Nenhum restaurante selecionado'})
+      return
+    }
+
     const products = cart.items.map(i => ({id: i.id, quantity: i.quantity}))
     console.log('items:', products)
-    // const products = [...cart.items]
-    const id = cart.restaurant.id
+    const id = cart.restaurant.current.id
 
     await finishOrder({id, data: {products, paymentMethod}})
-    if (!errorOrder) {
+    if (!errorOrder && order?.totalPrice) {
+      cart.clear()
       go.home()
-    } else {
-      alert('Deu BO no pedido...')
     }
   }
+  console.log('SOMA', cart.sum())
 
   return (
     <div className={styles.container}>
       {isLoading ? (
-        'Loading'
+        <Loading />
       ) : (
         <UserAddress address={user.address} title='Endereço de entrega' />
       )}
 
-      <AddressRestaurant {...cart.restaurant} />
+      {cart.restaurant.current && (
+        <AddressRestaurant {...cart.restaurant.current} />
+      )}
 
-      {cart.items.map(item => (
-        <ItemCard key={item.id} {...item} />
-      ))}
-      <h4>Frete {formatPrice(cart.restaurant.shipping)}</h4>
-      <h3>Total: {formatPrice(cart.sum())}</h3>
-      <CategoryTitle title='Forma de pagamento' />
-      <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton>
-      <Button label='Comprar' action={purchase} />
+      <div className={styles.cardContainer}>
+        {cart.items.map(item => (
+          <ItemCard key={item.id} {...item} />
+        ))}
+      </div>
+      <div className={styles.purchaseInfo}>
+        <p>Frete {formatPrice(cart.restaurant.current.shipping)}</p>
+        <div>
+          <p>Subtotal</p>
+          <p>{formatPrice(cart.sum())}</p>
+        </div>
+        <CategoryTitle title='Forma de pagamento' />
+        <RadioButton {...{paymentMethod, setPaymentMethod}}></RadioButton>
+        <Button
+          label='Comprar'
+          action={purchase}
+          disabled={!cart.items.length}
+        />
+      </div>
       {loadingOrder && 'Finalizando pedido...'}
+      {errorOrder && <Alert {...errorOrder} setIsError={setErrorOrder} />}
     </div>
   )
 }

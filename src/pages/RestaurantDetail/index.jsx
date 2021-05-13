@@ -28,10 +28,6 @@ const RestaurantDetail = props => {
     getData()
   }, [id])
 
-  useEffect(() => {
-    restaurant?.name && cart.setRestaurant(restaurant)
-  }, [cart, restaurant])
-
   const productsByCategory = products => {
     if (!products?.length) return
     console.log('products: ', products)
@@ -52,7 +48,7 @@ const RestaurantDetail = props => {
         <Category key={item.category} title={item.category} />
         <div className={styles.itemsList}>
           {item.products.map(p => (
-            <ItemCard key={p.id} {...p} />
+            <ItemCard key={p.id} restaurant={restaurant} {...p} />
           ))}
         </div>
       </div>
@@ -61,8 +57,6 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
-      {/* <Header title='Restaurante' showArrow /> */}
-
       <RestaurantCard {...restaurant} showDetail />
       {productsByCategory(restaurant.products)}
     </div>

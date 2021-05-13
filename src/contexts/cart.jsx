@@ -1,22 +1,44 @@
+import {useEffect} from 'react'
+import {useRef} from 'react'
 import {useState, createContext} from 'react'
 
 export const CartContext = createContext({})
 
 export const CartProvider = ({children}) => {
   const [items, setItems] = useState([])
-  const [restaurant, setRestaurant] = useState({})
   const [error, setError] = useState(false)
+  const restaurant = useRef(false)
 
-  console.log({restaurant})
+  useEffect(() => {
+    const localCart = localStorage.getItem('cart')
+    const localRest = localStorage.getItem('rest')
+    if (localCart && localRest && !items.length && !restaurant.current) {
+      setItems(JSON.parse(localCart))
+      restaurant.current = JSON.parse(localRest)
+    }
+  }, [items.length])
 
-  const add = product => {
+  const add = (product, selectedRest) => {
+    if (!restaurant.current) restaurant.current = {...selectedRest}
+    if (selectedRest.id !== restaurant.current.id) {
+      return setError(
+        `Existe pedido em andamento do restaurante ${restaurant.current.id}`
+      )
+    }
+    console.log('restaurant:', selectedRest.name)
+    console.log('current:', restaurant.current.name)
+
     let cartItems = [...items]
     const index = cartItems.findIndex(item => item.id === product.id)
 
     if (index >= 0) cartItems[index].quantity += 1
     else cartItems = [...cartItems, {...product, quantity: 1}]
 
+    console.log({cartItems})
+    console.log('current', restaurant.current)
     setItems(cartItems)
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+    localStorage.setItem('rest', JSON.stringify(restaurant.current))
   }
 
   const remove = product => {
@@ -32,17 +54,23 @@ export const CartProvider = ({children}) => {
     }
 
     setItems(cartItems)
+    if (!cartItems.length) {
+      restaurant.current = false
+      localStorage.removeItem('cart')
+      localStorage.removeItem('rest')
+    }
   }
 
   const amount = product =>
     items.find(item => item.id === product.id)?.quantity || 0
 
   const sum = () => {
+    if (!restaurant.current) return 0
     const productsSum = items.reduce(
       (sum, item) => (sum += item.price * item.quantity),
       0
     )
-    return productsSum + restaurant.shipping
+    return productsSum + restaurant.current.shipping
   }
 
   const clear = () => setItems([])
@@ -58,7 +86,6 @@ export const CartProvider = ({children}) => {
         sum,
         amount,
         clear,
-        setRestaurant,
       }}
     >
       {children}
