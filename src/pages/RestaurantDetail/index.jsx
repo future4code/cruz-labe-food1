@@ -10,6 +10,7 @@ import BottomTabNav from 'components/BottomTabNav'
 import {CartContext} from 'contexts/cart'
 import {ThemeContext} from 'contexts/theme'
 import {name} from 'constants/project'
+import Alert from 'components/Alert'
 
 const RestaurantDetail = props => {
   const {id} = useParams()
@@ -57,6 +58,7 @@ const RestaurantDetail = props => {
 
   return (
     <div className={styles.container}>
+      {cart.error && <Alert message={cart.error} setIsError={cart.setError} />}
       <RestaurantCard {...restaurant} showDetail />
       {productsByCategory(restaurant.products)}
     </div>

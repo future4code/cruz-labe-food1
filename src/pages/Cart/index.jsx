@@ -83,6 +83,16 @@ const Cart = props => {
         <UserAddress address={user.address} title='Endereço de entrega' />
       )}
 
+      {!cart.items.length && (
+        <div className={styles.emptyCart}>
+          <p>Sem itens no carrinho</p>
+          <p>
+            Escolhe um bom restaurante e comece a adicionar pratos deliciosos
+            para degustar hoje mesmo em pouquissimo tempo!
+          </p>
+        </div>
+      )}
+
       {cart.restaurant.current && (
         <AddressRestaurant {...cart.restaurant.current} />
       )}

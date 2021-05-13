@@ -9,6 +9,11 @@
   animation: some 3s 1s ease-in forwards;
   position: relative;
   z-index: 1;
+
+  > div {
+    margin: 0;
+    place-self: start center;
+  }
 }
 
 .logo {

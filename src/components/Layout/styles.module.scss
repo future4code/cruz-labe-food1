@@ -3,7 +3,6 @@
   margin: auto;
   // display: grid;
   // grid: 80px 1fr 80px / 1fr;
-  height: 100vh;
   position: relative;
 
   @media (min-width: 600px) {
@@ -12,6 +11,10 @@
   }
   display: flex;
   flex-flow: column;
+
+  > div:first-of-type {
+    flex-grow: 1;
+  }
 
   // padding: 1rem;
 }

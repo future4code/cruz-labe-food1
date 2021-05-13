@@ -33,3 +33,22 @@
     }
   }
 }
+
+.emptyCart {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 2rem auto;
+
+  p:first-of-type {
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    line-height: 4;
+  }
+
+  p:last-of-type {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+  }
+}
