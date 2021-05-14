@@ -4,7 +4,8 @@
   @include flex(column, 0);
   width: 100%;
   height: auto;
-  padding: 0 1rem;
+  // padding: 0;
+  position: relative;
 
   .logo {
     width: 40%;
@@ -12,8 +13,40 @@
   }
 }
 
+.colorToogle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1rem;
+  font-size: 1.5rem;
+}
+
+@keyframes marginRight {
+  to {
+    margin-right: 250px;
+  }
+}
+
+.colorText {
+  position: absolute;
+  width: 50%;
+  text-align: right;
+  right: -50%;
+  top: 1.4rem;
+  font-size: 1rem;
+  color: var(--primary);
+  opacity: 0;
+}
+
+@keyframes apear {
+  to {
+    right: 15%;
+    opacity: 1;
+  }
+}
+
 .sizeTitle {
-  height: max(50px, 5vh);
+  // height: max(80px, 5vh);
+  height: auto;
 }
 
 .sizeLogo {
@@ -25,6 +58,7 @@
   font-size: 1rem;
   // line-height: 2;
   text-align: center;
+  margin-right: 0px;
 }
 
 .titleContainer {
@@ -42,6 +76,7 @@
   height: 1.5rem;
   position: fixed;
   margin-top: 1.25rem;
+  margin-left: 1rem;
 }
 
 .margin {

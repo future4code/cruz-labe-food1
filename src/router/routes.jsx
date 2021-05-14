@@ -13,10 +13,12 @@ import {
   EditAddress,
   NotFound,
 } from 'pages'
+import ScrollTop from 'components/ScrollTop'
 
 const Router = () => (
   <BrowserRouter>
     <Layout>
+      <ScrollTop />
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />

@@ -12,15 +12,21 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  border-color: var(--decoration);
 }
 
 body {
-  background-color: var(--white);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
 
   .App {
     width: 100%;
     padding: 1rem;
   }
+}
+
+input {
+  background-color: var(--background-secondary);
 }
 
 a {

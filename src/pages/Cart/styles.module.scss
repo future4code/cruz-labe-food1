@@ -1,8 +1,7 @@
 @use 'mixins' as *;
 
 .container {
-  @include container;
-  padding: 0;
+  @include container(true);
   margin-top: auto;
 }
 
@@ -16,7 +15,7 @@
 
   > p {
     text-align: right;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   > div:first-of-type {
@@ -29,6 +28,7 @@
 
     p:last-of-type {
       color: var(--primary);
+      font-size: 1.2rem;
       font-weight: bold;
     }
   }

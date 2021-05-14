@@ -21,7 +21,7 @@ const Category = ({categorys, register, resetCategory}) => {
       if (margin < -400 && margin < 0) return
 
       if (margin <= 0 && margin >= -400) {
-        let move = margin + moved
+        let move = margin + moved / 40
         if (margin + moved < -400) move = -400
         if (margin + moved > 0) move = 0
         categoryRef.current.style.marginLeft = move + 'px'

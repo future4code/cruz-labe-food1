@@ -21,20 +21,23 @@
 
 .title {
   grid-area: title;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .name {
   grid-area: name;
+  color: var(--background-primary);
 }
 
 .value {
   grid-area: value;
+  color: var(--background-primary);
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .time {
   grid-area: time;
+  color: var(--background-primary);
   place-self: center;
 }

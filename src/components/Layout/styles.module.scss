@@ -1,19 +1,19 @@
 .container {
   width: clamp(min(400px, 100%), 80%, 1280px);
+  min-height: 100vh;
   margin: auto;
   // display: grid;
   // grid: 80px 1fr 80px / 1fr;
   position: relative;
 
-  @media (min-width: 600px) {
-    height: auto;
-    min-height: 100vh;
-  }
   display: flex;
   flex-flow: column;
+  overflow: visible;
 
   > div:first-of-type {
     flex-grow: 1;
+    height: auto;
+    padding-bottom: 3rem;
   }
 
   // padding: 1rem;

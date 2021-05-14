@@ -10,8 +10,8 @@ const RadioGroup = ({name, value, change, options}) => (
           id={option.value}
           value={option.value}
           onChange={() => change(option.value)}
-          // checked={value === option.value}
         />
+        <span></span>
         <label for={option.value}>{option.label}</label>
       </div>
     ))}
