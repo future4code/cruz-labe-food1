@@ -1,0 +1,54 @@
+@use 'mixins' as *;
+
+.container {
+  @include container;
+  padding: 0;
+  margin-top: auto;
+}
+
+.cardContainer {
+  @include flex(column, 0.5rem);
+  padding: 0 1rem;
+}
+
+.purchaseInfo {
+  padding: 1rem;
+
+  > p {
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+
+  > div:first-of-type {
+    @include flex(row, 0);
+    justify-content: space-between;
+
+    p:first-of-type {
+      text-transform: uppercase;
+    }
+
+    p:last-of-type {
+      color: var(--primary);
+      font-weight: bold;
+    }
+  }
+}
+
+.emptyCart {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 2rem auto;
+
+  p:first-of-type {
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    line-height: 4;
+  }
+
+  p:last-of-type {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+  }
+}

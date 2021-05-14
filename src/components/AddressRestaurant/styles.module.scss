@@ -1,0 +1,21 @@
+@use 'mixins' as *;
+
+.container {
+  @include flex(column, 0.5rem);
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.address {
+  color: var(--text-secondary);
+}
+
+.time {
+  color: var(--text-secondary);
+}

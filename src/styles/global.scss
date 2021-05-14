@@ -1,0 +1,32 @@
+@use 'variables';
+
+:root {
+  @each $name, $color in variables.$colors {
+    --#{$name}: #{$color};
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: var(--white);
+
+  .App {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}

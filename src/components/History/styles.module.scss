@@ -1,0 +1,9 @@
+@use 'mixins' as *;
+
+.container {
+  padding: 1rem;
+}
+
+.cardContainer {
+  @include flex(column, 1rem);
+}

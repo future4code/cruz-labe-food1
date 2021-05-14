@@ -1,0 +1,88 @@
+@use 'mixins' as *;
+
+.container {
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  font-size: 1rem;
+
+  display: grid;
+  grid: repeat(3, minmax(38px, 1fr)) / 3.5fr 5.5fr 1fr;
+  grid-template-areas:
+    'image title minus'
+    'image desc amount'
+    'image price plus';
+  gap: 0.2rem;
+  place-items: stretch;
+
+  > * {
+    text-align: left;
+  }
+}
+
+.image {
+  grid-area: image;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.title {
+  grid-area: title;
+  color: var(--primary);
+  align-self: end;
+}
+
+.desc {
+  grid-area: desc;
+  color: var(--text-secondary);
+}
+
+.price {
+  color: var(--text-primary);
+}
+
+.minus,
+.plus,
+.amount {
+  place-self: center;
+  width: 100%;
+  height: 100%;
+  @include gridCenter;
+}
+
+.minus,
+.plus {
+  cursor: pointer;
+  color: var(--primary);
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--primary);
+    top: -1px;
+    right: -1px;
+  }
+}
+
+.minus {
+  grid-area: minus;
+
+  &:after {
+    border-radius: 0 8px 0 0;
+  }
+}
+
+.plus {
+  grid-area: plus;
+  &:after {
+    border-radius: 0 0 8px 0;
+  }
+}
+
+.amount {
+  grid-area: amount;
+  color: var(--primary);
+}

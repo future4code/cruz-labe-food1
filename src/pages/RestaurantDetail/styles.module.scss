@@ -1,0 +1,19 @@
+@use 'mixins' as *;
+
+.container {
+  @include container;
+  overflow: visible;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.itemsContainer {
+  @include flex(column, 1rem);
+}
+.itemsList {
+  @include flex(column, 1rem);
+}

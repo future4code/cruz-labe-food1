@@ -1,0 +1,15 @@
+@use 'mixins' as *;
+.container {
+  @include container;
+}
+
+.form {
+  display: flex;
+  flex-flow: column;
+  gap: 1.2rem;
+}
+
+.text {
+  font-size: 1rem;
+  text-align: center;
+}

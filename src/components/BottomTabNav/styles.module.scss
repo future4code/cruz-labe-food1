@@ -1,0 +1,45 @@
+.container {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: var(--background-primary);
+  border-top: 1px solid #999;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  height: min(50px, 8vh);
+
+  padding: 0px 15px 0px 15px;
+
+  > a {
+    flex-basis: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .cart.active {
+    background-image: url('/assets/icons/shopping-cart-active.svg');
+  }
+}
+
+.home {
+  background-image: url('/assets/icons/homepage.svg');
+}
+
+.activeHome {
+  background-image: url('/assets/icons/homepage-active.svg');
+}
+
+.cart {
+  background-image: url('/assets/icons/shopping-cart.svg');
+}
+.activeCart {
+  background-image: url('/assets/icons/shopping-cart-active.svg');
+}
+
+.avatar {
+  background-image: url('/assets/icons/avatar.svg');
+}
+.activeAvatar {
+  background-image: url('/assets/icons/avatar-active.svg');
+}

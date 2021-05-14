@@ -1,0 +1,23 @@
+.container {
+  border: 2px solid #666;
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: rotate 1s ease-in-out both infinite;
+  height: min(80%, 100px);
+  aspect-ratio: 1 / 1;
+  place-self: center center;
+  margin: auto;
+}
+
+.thickBorder {
+  border-width: 8px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

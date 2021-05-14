@@ -1,0 +1,21 @@
+@use 'functions' as *;
+
+$colors: (
+  primary: #e86e5a,
+  inactive: rgba(#e86e5a, 0.5),
+  secondary: #e02020,
+  text-primary: #000,
+  text-secondary: #b8b8b8,
+  text-inactive: #d0d0d0,
+  background-primary: #fff,
+  background-secondary: #eeeeee,
+  grey: #b8b8b8,
+  white: #fefefe,
+  success: #4caf50,
+  success-rgb: #{h2rgb(#4caf50)},
+  success15: lighten(#4caf50, 15%),
+  error: #f44336,
+  error15: lighten(#f44336, 15%),
+  error-rgb: #{h2rgb(#f44336)},
+  warning: #ff9800,
+);

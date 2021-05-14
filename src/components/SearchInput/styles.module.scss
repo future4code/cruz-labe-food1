@@ -1,0 +1,28 @@
+.rectangle {
+  width: 100%;
+  height: 56px;
+  margin: 0.5rem 0 0;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  border: solid 1px #b8b8b8;
+  padding-left: 1rem;
+  color: var(--text-primary);
+  padding-left: 3rem;
+
+  &::placeholder {
+    text-transform: capitalize;
+    color: var(--grey);
+  }
+}
+
+.img {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}

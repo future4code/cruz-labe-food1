@@ -1,0 +1,49 @@
+@use 'mixins' as *;
+
+.container {
+  @include flex(column, 0);
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+
+  .logo {
+    width: 40%;
+    height: 8rem;
+  }
+}
+
+.sizeTitle {
+  height: max(50px, 5vh);
+}
+
+.sizeLogo {
+  height: max(220px, 20vh);
+}
+
+.title {
+  color: var(--black);
+  font-size: 1rem;
+  // line-height: 2;
+  text-align: center;
+}
+
+.titleContainer {
+  width: 100%;
+  flex-basis: max(50px, 5vh);
+  line-height: 4rem;
+  align-items: center;
+}
+
+.titleContainerBorder {
+  border-bottom: 1.8px solid var(--grey);
+}
+
+.arrowBack {
+  height: 1.5rem;
+  position: fixed;
+  margin-top: 1.25rem;
+}
+
+.margin {
+  margin: 1rem auto;
+}

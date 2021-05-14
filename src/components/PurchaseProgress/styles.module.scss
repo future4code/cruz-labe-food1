@@ -1,0 +1,40 @@
+.container {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  background: var(--primary);
+  font-size: 1rem;
+
+  display: grid;
+  grid: repeat(3, 1fr) / 3fr 5fr;
+  grid-template-areas: 'image title' 'image name' 'time value';
+  // place-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.image {
+  grid-area: image;
+  place-self: center;
+}
+
+.title {
+  grid-area: title;
+  color: var(--white);
+}
+
+.name {
+  grid-area: name;
+}
+
+.value {
+  grid-area: value;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.time {
+  grid-area: time;
+  place-self: center;
+}

@@ -1,0 +1,43 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.container {
+  @include container;
+}
+
+.form {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+.text {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--text-primary);
+
+  a {
+    color: var(--text-primary);
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.loadingContainer {
+  p {
+    text-align: center;
+    animation: move 0.5s ease-in-out alternate both infinite;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate(-20%, 0);
+  }
+  to {
+    transform: translate(20%, 0);
+  }
+}

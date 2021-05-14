@@ -1,0 +1,46 @@
+.container {
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
+}
+
+.details {
+  border: none;
+  > div {
+    padding: 0;
+  }
+
+  img {
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    height: max(120px, 5vh);
+  }
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.infoContainer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    color: var(--text-secondary);
+  }
+}
+
+.values {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+@use 'mixins' as *;
+
+.container {
+  @include container;
+  flex-grow: 1;
+  @include flex(column, 1.5rem);
+  justify-self: center;
+  padding-top: 2rem;
+}
