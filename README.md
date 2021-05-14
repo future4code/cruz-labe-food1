@@ -95,6 +95,15 @@ yarn storybook
 
 
 ### Imagens
+
+## DARK MODE
+
+![Screenshot from 2021-05-14 00-23-16](https://user-images.githubusercontent.com/7757352/118217187-549c2c00-b44b-11eb-9f1a-d0e63b1f4dee.png)
+![Screenshot from 2021-05-13 23-39-49](https://user-images.githubusercontent.com/7757352/118217161-48b06a00-b44b-11eb-8bdb-c4bdf65c4e75.png)
+![Screenshot from 2021-05-14 00-27-38](https://user-images.githubusercontent.com/7757352/118217200-5cf46700-b44b-11eb-95c1-563933776cfa.png)
+![Screenshot from 2021-05-14 00-30-37](https://user-images.githubusercontent.com/7757352/118217343-a80e7a00-b44b-11eb-8f98-3fcc5597d4e5.png)
+
+## LIGHT MODE (Default)
 ![Screenshot from 2021-05-11 15-14-11](https://user-images.githubusercontent.com/7757352/117864805-953d4f00-b26b-11eb-8035-360d8f4b1f26.png)
 ![Screenshot from 2021-05-10 16-03-02](https://user-images.githubusercontent.com/7757352/117711227-5646c500-b1a9-11eb-89de-848b8a96867e.png)
 ![Screenshot from 2021-05-11 15-10-58](https://user-images.githubusercontent.com/7757352/117864491-41326a80-b26b-11eb-9b8a-fd8ad07b03b3.png)
@@ -125,3 +134,4 @@ Recebemos o design prototype pronto da designer Camila Mizutani, elaborado no ze
 Instruções da equipe gestora do curso para elaboração do projetinho
 
 [Instruction da chefia](https://www.notion.so/WFS13-Projeto-Final-do-Frontend-20ac39457b9344aab3863527a0032196)
+
